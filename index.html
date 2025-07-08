@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Conversia</title>
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Link Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo-area" onclick="toggleSidebar()">
+                <i class="fas fa-sliders-h"></i>
+                <span class="logo-text">Conversia</span>
+                <i class="fa-solid fa-angle-left"></i>
+            </div>
+            <nav>
+                <a href="#" data-section="temperatura"><i class="fas fa-temperature-high"></i><span>Temperatura</span></a>
+                <a href="#" data-section="tempo"><i class="fas fa-clock"></i><span>Tempo</span></a>
+                <a href="#" data-section="distancia"><i class="fas fa-ruler"></i><span>Distância</span></a>
+                <a href="#" data-section="peso"><i class="fas fa-weight-hanging"></i><span>Peso</span></a>
+                <a href="#" data-section="volume"><i class="fas fa-glass-whiskey"></i><span>Volume</span></a>
+                <a href="#" data-section="moeda"><i class="fas fa-dollar-sign"></i><span>Moeda</span></a>
+            </nav>
+        </aside>
+
+        <main class="content">
+        
+            <!-- Temperatura -->
+            <section id="temperatura" class="converter">
+            <div class="converter-content">
+                <h2>🌡️ Temperatura</h2>
+                <input type="number" id="tempInput" placeholder="Digite a temperatura" />
+                <select id="tempTipo">
+                    <option value="cToF">Celsius → Fahrenheit</option>
+                    <option value="fToC">Fahrenheit → Celsius</option>
+                </select>
+                <button onclick="converterTemperatura()">Converter</button>
+            </div>
+            <p id="tempResultado">Resultado: </p>
+            </section>
+
+            <!-- Tempo -->
+            <section id="tempo" class="converter">
+                <div class="converter-content">
+                    <h2>⏱️ Tempo</h2>
+                    <input type="number" id="tempoInput" placeholder="Digite o valor" />
+                    <select id="tempoTipo">
+                        <option value="hToMin">Horas → Minutos</option>
+                        <option value="minToH">Minutos → Horas</option>
+                        <option value="hToS">Horas → Segundos</option>
+                        <option value="sToH">Segundos → Horas</option>
+                        <option value="minToS">Minutos → Segundos</option>
+                        <option value="sToMin">Segundos → Minutos</option>
+                    </select>
+                    <button onclick="converterTempo()">Converter</button>
+                </div>
+                <p id="tempoResultado">Resultado: </p>
+            </section>
+
+            <!-- Distância -->
+            <section id="distancia" class="converter">
+                <div class="converter-content">
+                    <h2>📏 Distância</h2>
+                    <input type="number" id="distanciaInput" placeholder="Digite o valor" />
+                    <select id="distanciaTipo">
+                        <option value="mToFt">Metros → Pés</option>
+                        <option value="ftToM">Pés → Metros</option>
+                    </select>
+                    <button onclick="converterDistancia()">Converter</button>
+                </div>
+                <p id="distanciaResultado">Resultado: </p>
+            </section>
+
+            <!-- Peso -->
+            <section id="peso" class="converter">
+                <div class="converter-content">
+                    <h2>⚖️ Peso</h2>
+                    <input type="number" id="pesoInput" placeholder="Digite o valor" />
+                    <select id="pesoTipo">
+                        <option value="kgToLb">Quilos → Libras</option>
+                        <option value="lbToKg">Libras → Quilos</option>
+                        <option value="kgToG">Quilos → Gramas</option>
+                        <option value="gToKg">Gramas → Quilos</option>
+                        <option value="gToOz">Gramas → Onças</option>
+                        <option value="ozToG">Onças → Gramas</option>
+                        <option value="tonToKg">Toneladas → Quilos</option>
+                        <option value="kgToTon">Quilos → Toneladas</option>
+                    </select>
+                    <button onclick="converterPeso()">Converter</button>
+                </div>
+                <p id="pesoResultado">Resultado: </p>
+            </section>
+
+            <!-- Volume -->
+            <section id="volume" class="converter">
+                <div class="converter-content">
+                    <h2>🧴 Volume</h2>
+                    <input type="number" id="volumeInput" placeholder="Digite o valor" />
+                    <select id="volumeTipo">
+                        <option value="lToGal">Litros → Galões</option>
+                        <option value="galToL">Galões → Litros</option>
+                        <option value="mlToL">Mililitros → Litros</option>
+                        <option value="lToMl">Litros → Mililitros</option>
+                        <option value="galToMl">Galões → Mililitros</option>
+                        <option value="mlToGal">Mililitros → Galões</option>
+                    </select>
+                    <button onclick="converterVolume()">Converter</button>
+                </div>
+                <p id="volumeResultado">Resultado: </p>
+            </section>
+
+            <!-- Moeda -->
+            <section id="moeda" class="converter">
+                <div class="converter-content">
+                    <h2>💰 Moeda</h2>
+                    <input type="number" id="moedaInput" placeholder="Digite o valor" />
+                    <select id="moedaTipo">
+                        <option value="brlToUsd">Reais → Dólares</option>
+                        <option value="usdToBrl">Dólares → Reais</option>
+                    </select>
+                    <button onclick="converterMoeda()">Converter</button>
+                </div>
+                <p id="moedaResultado">Resultado: </p>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="./javascript/script.js"></script>
+</body>
+</html>
