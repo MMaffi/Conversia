@@ -165,16 +165,26 @@ function converterMoeda() {
 const links = document.querySelectorAll("nav a");
 const sections = document.querySelectorAll(".converter");
 
-document.getElementById("temperatura").classList.add("active");
+document.getElementById("temperatura").classList.add("active"); 
+links[0].classList.add("active-link"); 
 
 links.forEach(link => {
-    link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const target = link.getAttribute("data-section");
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const target = link.getAttribute("data-section");
 
-        sections.forEach(sec => sec.classList.remove("active"));
-        document.getElementById(target).classList.add("active");
-    });
+    
+    sections.forEach(sec => sec.classList.remove("active"));
+
+   
+    document.getElementById(target).classList.add("active");
+
+   
+    links.forEach(l => l.classList.remove("active-link"));
+
+    
+    link.classList.add("active-link");
+  });
 });
 
 function toggleSidebar() {

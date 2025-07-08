@@ -121,6 +121,11 @@ body {
   margin-bottom: 30px;
   gap: 10px;
   font-size: 20px;
+  width: 100%;
+}
+
+.sidebar .seta-sidebar {
+  margin-left: auto;
 }
 
 .sidebar.minimized .logo-text,
@@ -160,4 +165,8 @@ body {
 
 .sidebar.minimized ~ .content {
   margin-left: 80px;
+}
+
+.sidebar nav a.active-link {
+  font-weight: bold;
 }
