@@ -123,12 +123,13 @@ body {
   font-size: 20px;
 }
 
-.sidebar .logo-text {
-  transition: opacity 0.3s;
+.sidebar.minimized .logo-text,
+.sidebar.minimized .fa-angle-left {
+  display: none;
 }
 
-.sidebar.minimized .logo-text {
-  opacity: 0;
+.sidebar.minimized .logo-area {
+  justify-content: center;
 }
 
 .sidebar nav a {
@@ -141,6 +142,15 @@ body {
 
 .sidebar.minimized nav a span {
   display: none;
+}
+
+.sidebar.minimized nav a {
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.sidebar.minimized nav a i {
+  margin: 0;
 }
 
 .content {
