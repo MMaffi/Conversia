@@ -26,7 +26,7 @@
 
 ## 🚀 How to Use
 
-1. Visit the published site: [Conversia](mmaffi.github.io/Conversia)
+1. Visit the published site: [Conversia](https://mmaffi.github.io/Conversia)
 2. Select the desired conversion type  
 3. Enter the values and get the result in real time
 
