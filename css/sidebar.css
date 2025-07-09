@@ -1,0 +1,81 @@
+.sidebar {
+    width: 220px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    height: 100vh;
+    transition: width 0.3s;
+    overflow: hidden;
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    padding: 10px 0;
+    color: white;
+    text-decoration: none;
+    margin: 15px 0;
+    transition: 0.3s;
+}
+
+.sidebar nav a:hover {
+    color: #1abc9c;
+    text-decoration: underline;
+}
+
+.sidebar .logo-area {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 30px;
+    gap: 10px;
+    font-size: 20px;
+    width: 100%;
+}
+
+.sidebar .seta-sidebar {
+    margin-left: auto;
+}
+
+.sidebar.minimized {
+    width: 60px;
+}
+
+.sidebar.minimized .logo-text,
+.sidebar.minimized .fa-angle-left {
+    display: none;
+}
+
+.sidebar.minimized .logo-area {
+  justify-content: center;
+}
+
+.sidebar.minimized nav a span {
+  display: none;
+}
+
+.sidebar.minimized nav a {
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.sidebar.minimized nav a i {
+  margin: 0;
+}
+
+.sidebar.minimized ~ .content {
+  margin-left: 80px;
+}
+
+.sidebar nav a.active-link {
+  font-weight: bold;
+}

@@ -1,53 +1,14 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Georgia, Arial, sans-serif;
-}
-
-body {
-    height: 100vh;
-    background-color: #f9f9f9;
-}
-
 .container {
     display: flex;
     height: 100vh;
 }
 
-.sidebar {
-    width: 220px;
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-    position: fixed;
-    height: 100vh;
-}
-
-.sidebar h2 {
-    margin-bottom: 30px;
-    font-size: 24px;
-    text-align: center;
-}
-
-.sidebar nav a {
-    display: block;
-    color: white;
-    text-decoration: none;
-    margin: 15px 0;
-    transition: 0.3s;
-}
-
-.sidebar nav a:hover {
-    color: #1abc9c;
-    text-decoration: underline;
-}
-
 .content {
-    margin-left: 240px;
+	margin-left: 240px;
     padding: 40px;
     width: 100%;
     overflow-y: auto;
+	transition: margin-left 0.3s;
 }
 
 .converter {
@@ -102,114 +63,4 @@ body {
     color: #000;
     padding-top: 20px;
     border-top: 1px solid #eee;
-}
-
-.sidebar {
-  width: 220px;
-  transition: width 0.3s;
-  overflow: hidden;
-}
-
-.sidebar.minimized {
-  width: 60px;
-}
-
-.sidebar .logo-area {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  margin-bottom: 30px;
-  gap: 10px;
-  font-size: 20px;
-  width: 100%;
-}
-
-.sidebar .seta-sidebar {
-  margin-left: auto;
-}
-
-.sidebar.minimized .logo-text,
-.sidebar.minimized .fa-angle-left {
-  display: none;
-}
-
-.sidebar.minimized .logo-area {
-  justify-content: center;
-}
-
-.sidebar nav a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 16px;
-  padding: 10px 0;
-}
-
-.sidebar.minimized nav a span {
-  display: none;
-}
-
-.sidebar.minimized nav a {
-  justify-content: center;
-  padding: 10px 0;
-}
-
-.sidebar.minimized nav a i {
-  margin: 0;
-}
-
-.content {
-  margin-left: 240px;
-  transition: margin-left 0.3s;
-}
-
-.sidebar.minimized ~ .content {
-  margin-left: 80px;
-}
-
-.sidebar nav a.active-link {
-  font-weight: bold;
-}
-
-input[type="number"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: white;
-  color: #333;
-  font-size: 16px;
-  transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-input[type="number"]:focus {
-  border-color: #1abc9c;
-  box-shadow: 0 0 5px rgba(26, 188, 156, 0.5);
-  outline: none;
-}
-
-/* Chrome, Safari, Edge */
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-select {
-  cursor: pointer;
-  appearance: none;          /* Remove estilo padrão (Chrome) */
-  -webkit-appearance: none;  /* Safari */
-  -moz-appearance: none;     /* Firefox */
-  background-color: white;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-  background-image: url('data:image/svg+xml;charset=UTF-8,<svg fill="%231abc9c" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 16px;
 }
