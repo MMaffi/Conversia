@@ -67,6 +67,11 @@
     background-color: #16a085;
 }
 
+.converter button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
 .converter p {
     font-weight: bold;
     font-size: 1.1rem;

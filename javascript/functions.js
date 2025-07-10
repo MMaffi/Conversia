@@ -163,23 +163,38 @@ async function converterMoeda() {
     const valor = parseFloat(document.getElementById("moedaInput").value);
     const de = document.getElementById("moedaDe").value.toUpperCase();
     const para = document.getElementById("moedaPara").value.toUpperCase();
+    const resultadoEl = document.getElementById("moedaResultado");
+    const botao = document.querySelector("#moeda button");
+
     let resultado = "";
 
     if (isNaN(valor)) {
         resultado = "Por favor, insira um número válido.";
-    } else if (de === para) {
-        resultado = `${valor.toFixed(2)} ${de} = ${valor.toFixed(2)} ${para}`;
-    } else {
-        const cotacao = await obterCotacao(de, para);
-
-        if (cotacao) {
-            const convertido = valor * cotacao;
-            const simbolo = para === "USD" ? "$" : para === "EUR" ? "€" : `(${para})`;
-            resultado = `${valor.toFixed(2)} ${de} = ${simbolo} ${convertido.toFixed(2)}`;
-        } else {
-            resultado = "Erro ao obter cotação. Tente novamente.";
-        }
+        resultadoEl.textContent = `Resultado: ${resultado}`;
+        return;
     }
 
-    document.getElementById("moedaResultado").textContent = `Resultado: ${resultado}`;
+    if (de === para) {
+        resultado = `${valor.toFixed(2)} ${de} = ${valor.toFixed(2)} ${para}`;
+        resultadoEl.textContent = `Resultado: ${resultado}`;
+        return;
+    }
+
+    botao.disabled = true;
+    botao.textContent = "Convertendo...";
+    resultadoEl.textContent = "Resultado: Buscando cotação...";
+
+    const cotacao = await obterCotacao(de, para);
+
+    if (cotacao) {
+        const convertido = valor * cotacao;
+        resultado = `${valor.toFixed(2)} ${de} = ${convertido.toFixed(2)} ${para}`;
+    } else {
+        resultado = "Erro ao obter cotação. Tente novamente mais tarde.";
+    }
+
+    resultadoEl.textContent = `Resultado: ${resultado}`;
+
+    botao.disabled = false;
+    botao.textContent = "Converter";
 }
