@@ -79,3 +79,21 @@ function inverterSelects(id1, id2) {
     select1.value = select2.value;
     select2.value = temp;
 }
+
+document.querySelectorAll("button").forEach((button) => {
+  button.addEventListener("click", function (e) {
+    const circle = document.createElement("span");
+    circle.classList.add("ripple");
+
+    const rect = button.getBoundingClientRect();
+    const size = Math.max(button.offsetWidth, button.offsetHeight);
+    circle.style.width = circle.style.height = size + "px";
+    circle.style.left = e.clientX - rect.left - size / 2 + "px";
+    circle.style.top = e.clientY - rect.top - size / 2 + "px";
+
+    const ripple = button.querySelector(".ripple");
+    if (ripple) ripple.remove();
+
+    button.appendChild(circle);
+  });
+});

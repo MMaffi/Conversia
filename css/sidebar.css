@@ -7,6 +7,8 @@
     height: 100vh;
     transition: width 0.3s;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar h2 {
