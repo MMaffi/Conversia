@@ -44,10 +44,19 @@
             <div class="converter-content">
                 <h2>🌡️ Temperatura</h2>
                 <input type="number" id="tempInput" placeholder="Digite o valor" />
-                <select id="tempTipo">
-                    <option value="cToF">Celsius → Fahrenheit</option>
-                    <option value="fToC">Fahrenheit → Celsius</option>
-                </select>
+                <div class="double-select">
+                    <select id="tempDe">
+                        <option value="c" selected>Celsius</option>
+                        <option value="f">Fahrenheit</option>
+                    </select>
+
+                    <span>→</span>
+
+                    <select id="tempPara">
+                        <option value="c">Celsius</option>
+                        <option value="f" selected>Fahrenheit</option>
+                    </select>
+                </div>
                 <button onclick="converterTemperatura()">Converter</button>
             </div>
             <p id="tempResultado">Resultado: </p>
@@ -58,14 +67,21 @@
                 <div class="converter-content">
                     <h2>⏱️ Tempo</h2>
                     <input type="number" id="tempoInput" placeholder="Digite o valor" />
-                    <select id="tempoTipo">
-                        <option value="hToMin">Horas → Minutos</option>
-                        <option value="minToH">Minutos → Horas</option>
-                        <option value="hToS">Horas → Segundos</option>
-                        <option value="sToH">Segundos → Horas</option>
-                        <option value="minToS">Minutos → Segundos</option>
-                        <option value="sToMin">Segundos → Minutos</option>
-                    </select>
+                    <div class="double-select">
+                        <select id="tempoDe">
+                            <option value="h" selected>Horas</option>
+                            <option value="min">Minutos</option>
+                            <option value="s">Segundos</option>
+                        </select>
+
+                        <span>→</span>
+
+                        <select id="tempoPara">
+                            <option value="h">Horas</option>
+                            <option value="min" selected>Minutos</option>
+                            <option value="s">Segundos</option>
+                        </select>
+                    </div>
                     <button onclick="converterTempo()">Converter</button>
                 </div>
                 <p id="tempoResultado">Resultado: </p>
@@ -76,10 +92,19 @@
                 <div class="converter-content">
                     <h2>📏 Distância</h2>
                     <input type="number" id="distanciaInput" placeholder="Digite o valor" />
-                    <select id="distanciaTipo">
-                        <option value="mToFt">Metros → Pés</option>
-                        <option value="ftToM">Pés → Metros</option>
-                    </select>
+                    <div class="double-select">
+                        <select id="distanciaDe">
+                            <option value="m" selected>Metros</option>
+                            <option value="ft">Pés</option>
+                        </select>
+
+                        <span>→</span>
+
+                        <select id="distanciaPara">
+                            <option value="m">Metros</option>
+                            <option value="ft" selected>Pés</option>
+                        </select>
+                    </div>
                     <button onclick="converterDistancia()">Converter</button>
                 </div>
                 <p id="distanciaResultado">Resultado: </p>
@@ -90,16 +115,25 @@
                 <div class="converter-content">
                     <h2>⚖️ Peso</h2>
                     <input type="number" id="pesoInput" placeholder="Digite o valor" />
-                    <select id="pesoTipo">
-                        <option value="kgToLb">Quilos → Libras</option>
-                        <option value="lbToKg">Libras → Quilos</option>
-                        <option value="kgToG">Quilos → Gramas</option>
-                        <option value="gToKg">Gramas → Quilos</option>
-                        <option value="gToOz">Gramas → Onças</option>
-                        <option value="ozToG">Onças → Gramas</option>
-                        <option value="tonToKg">Toneladas → Quilos</option>
-                        <option value="kgToTon">Quilos → Toneladas</option>
-                    </select>
+                    <div class="double-select">
+                        <select id="pesoDe">
+                            <option value="kg" selected>Quilos</option>
+                            <option value="lb">Libras</option>
+                            <option value="g">Gramas</option>
+                            <option value="oz">Onças</option>
+                            <option value="ton">Toneladas</option>
+                        </select>
+
+                        <span>→</span>
+
+                        <select id="pesoPara">
+                            <option value="kg">Quilos</option>
+                            <option value="lb" selected>Libras</option>
+                            <option value="g">Gramas</option>
+                            <option value="oz">Onças</option>
+                            <option value="ton">Toneladas</option>
+                        </select>
+                    </div>
                     <button onclick="converterPeso()">Converter</button>
                 </div>
                 <p id="pesoResultado">Resultado: </p>
@@ -110,14 +144,21 @@
                 <div class="converter-content">
                     <h2>🧴 Volume</h2>
                     <input type="number" id="volumeInput" placeholder="Digite o valor" />
-                    <select id="volumeTipo">
-                        <option value="lToGal">Litros → Galões</option>
-                        <option value="galToL">Galões → Litros</option>
-                        <option value="mlToL">Mililitros → Litros</option>
-                        <option value="lToMl">Litros → Mililitros</option>
-                        <option value="galToMl">Galões → Mililitros</option>
-                        <option value="mlToGal">Mililitros → Galões</option>
-                    </select>
+                    <div class="double-select">
+                        <select id="volumeDe">
+                            <option value="l" selected>Litros</option>
+                            <option value="ml">Mililitros</option>
+                            <option value="gal">Galões</option>
+                        </select>
+
+                        <span>→</span>
+
+                        <select id="volumePara">
+                            <option value="l">Litros</option>
+                            <option value="ml" selected>Mililitros</option>
+                            <option value="gal">Galões</option>
+                        </select>
+                    </div>
                     <button onclick="converterVolume()">Converter</button>
                 </div>
                 <p id="volumeResultado">Resultado: </p>
@@ -128,10 +169,56 @@
                 <div class="converter-content">
                     <h2>💰 Moeda</h2>
                     <input type="number" id="moedaInput" placeholder="Digite o valor" />
-                    <select id="moedaTipo">
-                        <option value="brlToUsd">Reais → Dólares</option>
-                        <option value="usdToBrl">Dólares → Reais</option>
-                    </select>
+                    <div class="double-select">
+                        <select id="moedaDe">
+                            <option value="BRL" selected>🇧🇷 Real Brasileiro (BRL)</option>
+                            <option value="USD">🇺🇸 Dólar Americano (USD)</option>
+                            <option value="EUR">🇪🇺 Euro (EUR)</option>
+                            <option value="GBP">🇬🇧 Libra Esterlina (GBP)</option>
+                            <option value="ARS">🇦🇷 Peso Argentino (ARS)</option>
+                            <option value="CLP">🇨🇱 Peso Chileno (CLP)</option>
+                            <option value="CAD">🇨🇦 Dólar Canadense (CAD)</option>
+                            <option value="AUD">🇦🇺 Dólar Australiano (AUD)</option>
+                            <option value="JPY">🇯🇵 Iene Japonês (JPY)</option>
+                            <option value="CNY">🇨🇳 Yuan Chinês (CNY)</option>
+                            <option value="CHF">🇨🇭 Franco Suíço (CHF)</option>
+                            <option value="SEK">🇸🇪 Coroa Sueca (SEK)</option>
+                            <option value="NOK">🇳🇴 Coroa Norueguesa (NOK)</option>
+                            <option value="DKK">🇩🇰 Coroa Dinamarquesa (DKK)</option>
+                            <option value="MXN">🇲🇽 Peso Mexicano (MXN)</option>
+                            <option value="INR">🇮🇳 Rúpia Indiana (INR)</option>
+                            <option value="RUB">🇷🇺 Rublo Russo (RUB)</option>
+                            <option value="ZAR">🇿🇦 Rand Sul-Africano (ZAR)</option>
+                            <option value="KRW">🇰🇷 Won Sul-Coreano (KRW)</option>
+                            <option value="TRY">🇹🇷 Lira Turca (TRY)</option>
+                        </select>
+
+
+                        <span>→</span>
+
+                        <select id="moedaPara">
+                            <option value="BRL">🇧🇷 Real Brasileiro (BRL)</option>
+                            <option value="USD" selected>🇺🇸 Dólar Americano (USD)</option>
+                            <option value="EUR">🇪🇺 Euro (EUR)</option>
+                            <option value="GBP">🇬🇧 Libra Esterlina (GBP)</option>
+                            <option value="ARS">🇦🇷 Peso Argentino (ARS)</option>
+                            <option value="CLP">🇨🇱 Peso Chileno (CLP)</option>
+                            <option value="CAD">🇨🇦 Dólar Canadense (CAD)</option>
+                            <option value="AUD">🇦🇺 Dólar Australiano (AUD)</option>
+                            <option value="JPY">🇯🇵 Iene Japonês (JPY)</option>
+                            <option value="CNY">🇨🇳 Yuan Chinês (CNY)</option>
+                            <option value="CHF">🇨🇭 Franco Suíço (CHF)</option>
+                            <option value="SEK">🇸🇪 Coroa Sueca (SEK)</option>
+                            <option value="NOK">🇳🇴 Coroa Norueguesa (NOK)</option>
+                            <option value="DKK">🇩🇰 Coroa Dinamarquesa (DKK)</option>
+                            <option value="MXN">🇲🇽 Peso Mexicano (MXN)</option>
+                            <option value="INR">🇮🇳 Rúpia Indiana (INR)</option>
+                            <option value="RUB">🇷🇺 Rublo Russo (RUB)</option>
+                            <option value="ZAR">🇿🇦 Rand Sul-Africano (ZAR)</option>
+                            <option value="KRW">🇰🇷 Won Sul-Coreano (KRW)</option>
+                            <option value="TRY">🇹🇷 Lira Turca (TRY)</option>
+                        </select>
+                    </div>
                     <button onclick="converterMoeda()">Converter</button>
                 </div>
                 <p id="moedaResultado">Resultado: </p>
@@ -140,6 +227,8 @@
         </main>
     </div>
 
+    <script src="./javascript/apiprice.js"></script>
+    <script src="./javascript/clearfunction.js"></script>
     <script src="./javascript/script.js"></script>
     <script src="./javascript/functions.js"></script>
 </body>

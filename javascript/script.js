@@ -9,16 +9,14 @@ links.forEach(link => {
     e.preventDefault();
     const target = link.getAttribute("data-section");
 
-    
+    resetarConversores();
+
     sections.forEach(sec => sec.classList.remove("active"));
 
-   
     document.getElementById(target).classList.add("active");
 
-   
     links.forEach(l => l.classList.remove("active-link"));
 
-    
     link.classList.add("active-link");
   });
 });
