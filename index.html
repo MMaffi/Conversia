@@ -50,7 +50,7 @@
                         <option value="f">Fahrenheit</option>
                     </select>
 
-                    <span>→</span>
+                    <button class="inverter-btn" onclick="inverterSelects('tempDe', 'tempPara')">↔</button>
 
                     <select id="tempPara">
                         <option value="c">Celsius</option>
@@ -74,7 +74,7 @@
                             <option value="s">Segundos</option>
                         </select>
 
-                        <span>→</span>
+                        <button class="inverter-btn" onclick="inverterSelects('tempoDe', 'tempoPara')">↔</button>
 
                         <select id="tempoPara">
                             <option value="h">Horas</option>
@@ -98,7 +98,7 @@
                             <option value="ft">Pés</option>
                         </select>
 
-                        <span>→</span>
+                        <button class="inverter-btn" onclick="inverterSelects('distanciaDe', 'distanciaPara')">↔</button>
 
                         <select id="distanciaPara">
                             <option value="m">Metros</option>
@@ -124,7 +124,7 @@
                             <option value="ton">Toneladas</option>
                         </select>
 
-                        <span>→</span>
+                        <button class="inverter-btn" onclick="inverterSelects('pesoDe', 'pesoPara')">↔</button>
 
                         <select id="pesoPara">
                             <option value="kg">Quilos</option>
@@ -151,7 +151,7 @@
                             <option value="gal">Galões</option>
                         </select>
 
-                        <span>→</span>
+                        <button class="inverter-btn" onclick="inverterSelects('volumeDe', 'volumePara')">↔</button>
 
                         <select id="volumePara">
                             <option value="l">Litros</option>
@@ -193,8 +193,7 @@
                             <option value="TRY">🇹🇷 Lira Turca (TRY)</option>
                         </select>
 
-
-                        <span>→</span>
+                        <button class="inverter-btn" onclick="inverterSelects('moedaDe', 'moedaPara')">↔</button>
 
                         <select id="moedaPara">
                             <option value="BRL">🇧🇷 Real Brasileiro (BRL)</option>
@@ -219,7 +218,7 @@
                             <option value="TRY">🇹🇷 Lira Turca (TRY)</option>
                         </select>
                     </div>
-                    <button onclick="converterMoeda()">Converter</button>
+                    <button id="botaoConverterMoeda" onclick="converterMoeda()">Converter</button>
                 </div>
                 <p id="moedaResultado">Resultado: </p>
             </section>

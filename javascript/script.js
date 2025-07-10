@@ -70,3 +70,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+function inverterSelects(id1, id2) {
+    const select1 = document.getElementById(id1);
+    const select2 = document.getElementById(id2);
+
+    const temp = select1.value;
+    select1.value = select2.value;
+    select2.value = temp;
+}

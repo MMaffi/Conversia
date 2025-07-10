@@ -1,21 +1,10 @@
 function converterTemperatura() {
     const valor = parseFloat(document.getElementById("tempInput").value);
-    // const tipo = document.getElementById("tempTipo").value;
 
     const de = document.getElementById("tempDe").value;
     const para = document.getElementById("tempPara").value;
     
     let resultado = "";
-
-    // if (isNaN(valor)) {
-    //     resultado = "Por favor, insira um número válido.";
-    // } else {
-    //     if (tipo === "cToF") {
-    //         resultado = `${valor} °C = ${(valor * 9/5 + 32).toFixed(2)} °F`;
-    //     } else {
-    //         resultado = `${valor} °F = ${((valor - 32) * 5/9).toFixed(2)} °C`;
-    //     }
-    // }
 
     if (isNaN(valor)) {
     resultado = "Por favor, insira um número válido.";
@@ -164,7 +153,7 @@ async function converterMoeda() {
     const de = document.getElementById("moedaDe").value.toUpperCase();
     const para = document.getElementById("moedaPara").value.toUpperCase();
     const resultadoEl = document.getElementById("moedaResultado");
-    const botao = document.querySelector("#moeda button");
+    const botao = document.getElementById("botaoConverterMoeda");
 
     let resultado = "";
 
