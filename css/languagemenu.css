@@ -36,6 +36,8 @@
 }
 
 .language-menu li {
+	display: flex;
+	gap: 5px;
 	padding: 0.5rem 1rem;
 	cursor: pointer;
 	text-align: left;

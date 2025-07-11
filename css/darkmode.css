@@ -73,27 +73,34 @@
 }
 
 /* Estilos Dark ------------------------------------------------------------------- */
+/* === TEMA ESCURO  === */
 
 body.dark-mode {
-    background-color: #121212;
+    background-color: #2f3136;
     color: #f0f0f0;
 }
 
+/* Sidebar escura */
 body.dark-mode .sidebar {
-    background-color: #1f1f1f;
+    background-color: #36393e;
 }
 
+/* Links na sidebar */
 body.dark-mode .sidebar nav a {
     color: #f0f0f0;
 }
 
 body.dark-mode .sidebar nav a:hover {
     color: #1abc9c;
+    background-color: #40444b;
+    border-radius: 5px;
 }
 
+/* Menu de idioma */
 body.dark-mode .language-menu {
-    background-color: #2a2a2a;
+    background-color: #36393e;
     color: #fff;
+    border-color: #4a4d52;
 }
 
 body.dark-mode .language-menu li {
@@ -101,19 +108,54 @@ body.dark-mode .language-menu li {
 }
 
 body.dark-mode .language-menu li:hover {
-    background-color: #444;
+    background-color: #50545b;
     color: #1abc9c;
 }
 
+/* Cards de conversão */
 body.dark-mode .converter {
-    background-color: #1e1e1e;
-    border: 1px solid #444;
+    background-color: #36393e;
+    border: 1px solid #4a4d52;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
+/* Campos de entrada e selects */
 body.dark-mode input,
-body.dark-mode select,
-body.dark-mode button {
-    background-color: #2e2e2e;
+body.dark-mode select {
+    background-color: #2f3136;
     color: #fff;
     border: 1px solid #555;
+}
+
+/* Botões */
+body.dark-mode button {
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+body.dark-mode button:hover {
+    background-color: #16a085;
+}
+
+/* Resultado */
+body.dark-mode p[id$="Resultado"] {
+    color: #ccc;
+}
+
+/* Título de cada seção */
+body.dark-mode h2 {
+    color: #f9f9f9;
+}
+
+/* Interruptor escuro */
+body.dark-mode .toggle-switch {
+    background-color: #50545b;
+}
+
+body.dark-mode #darkModeToggle:checked + .toggle-switch {
+    background-color: #1abc9c;
 }

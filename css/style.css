@@ -15,9 +15,9 @@
     display: none;
     height: calc(100vh - 80px);
     background-color: white;
-    padding: 30px 20px;
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     flex-direction: column;
     justify-content: space-between;
 }
