@@ -11,6 +11,21 @@
     flex-direction: column;
 }
 
+.nav-scroll {
+    flex-grow: 1;
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+}
+
+.nav-scroll::-webkit-scrollbar {
+    display: none;
+}
+.nav-scroll::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+}
+
 .sidebar h2 {
     margin-bottom: 30px;
     font-size: 24px;
@@ -36,6 +51,7 @@
 }
 
 .sidebar .logo-area {
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     cursor: pointer;
