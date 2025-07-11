@@ -1,12 +1,14 @@
 .darkmode-toggle {
     display: flex;
     justify-content: flex-start;
-    margin-top: 30px;
+    margin-top: 20px;
     align-items: center;
     width: 100%;
+    margin-left: 10px;
 }
 
 .sidebar.minimized .darkmode-toggle {
+    margin-left: 0;
     justify-content: center;
 }
 
@@ -101,6 +103,11 @@ body.dark-mode .language-menu {
     background-color: #36393e;
     color: #fff;
     border-color: #4a4d52;
+}
+
+body.dark-mode .language-switcher:hover {
+    background-color: #40444b;
+    border-radius: 5px;
 }
 
 body.dark-mode .language-menu li {

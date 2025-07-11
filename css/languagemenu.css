@@ -1,9 +1,10 @@
 .language-switcher {
 	position: relative;
+	padding: 10px;
 	display: flex;
     gap: 10px;
 	cursor: pointer;
-    transition: color 0.2s ease;
+    transition: 0.3s;
 }
 
 .config-wrapper {
@@ -18,6 +19,8 @@
 
 .language-switcher:hover {
     color: #1abc9c;
+	background-color: #394c5f;
+    border-radius: 5px;
 }
 
 .language-menu {
