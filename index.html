@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/languagemenu.css">
+    <link rel="stylesheet" href="./css/darkmode.css">
     <link rel="stylesheet" href="./css/sidebar.css" />
     <link rel="stylesheet" href="./css/inputstyle.css" />
     <link rel="stylesheet" href="./css/selectstyle.css" />
@@ -41,10 +42,21 @@
                 <a href="#" data-section="volume"><i class="fas fa-glass-whiskey"></i><span>Volume</span></a>
                 <a href="#" data-section="moeda"><i class="fas fa-dollar-sign"></i><span>Moeda</span></a>
             </nav>
-            <div class="language-wrapper">
+            <div class="config-wrapper">
                 <div class="language-switcher" id="languageSwitcher">
-                    <i class="fa-solid fa-globe icon-globe" title="Selecionar idioma"></i>
-                    <p class="idiomatext" title="Selecionar idioma">Idioma</p>
+                    <i class="fa-solid fa-globe icon-globe"></i>
+                    <p class="idiomatext">Idioma</p>
+                </div>
+                <div class="darkmode-toggle">
+                    <label for="darkModeToggle" class="toggle-label">
+                        <div class="toggle-switch-wrapper">
+                            <input type="checkbox" id="darkModeToggle" />
+                            <span class="toggle-switch">
+                                <span class="icon"></span>
+                            </span>
+                        </div>
+                        <span class="darkmodetext">Tema</span>
+                    </label>
                 </div>
             </div>
         </aside>
@@ -245,6 +257,7 @@
     <script src="./javascript/apiprice.js"></script>
     <script src="./javascript/clearfunction.js"></script>
     <script src="./javascript/language.js"></script>
+    <script src="./javascript/darkmode.js"></script>
     <script src="./javascript/script.js"></script>
     <script src="./javascript/functions.js"></script>
 </body>
