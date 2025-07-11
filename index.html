@@ -76,6 +76,7 @@
                     <select id="tempDe">
                         <option value="c" selected>Celsius</option>
                         <option value="f">Fahrenheit</option>
+                        <option value="k">Kelvin</option>
                     </select>
 
                     <button class="inverter-btn" onclick="inverterSelects('tempDe', 'tempPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
@@ -83,6 +84,7 @@
                     <select id="tempPara">
                         <option value="c">Celsius</option>
                         <option value="f" selected>Fahrenheit</option>
+                        <option value="k">Kelvin</option>
                     </select>
                 </div>
                 <button onclick="converterTemperatura()">Converter</button>
@@ -97,18 +99,20 @@
                     <input type="number" id="tempoInput" placeholder="Digite o valor" />
                     <div class="double-select">
                         <select id="tempoDe">
-                            <option value="h" selected>Horas</option>
-                            <option value="min">Minutos</option>
-                            <option value="s">Segundos</option>
-                        </select>
+                        <option value="h" selected>Horas</option>
+                        <option value="min">Minutos</option>
+                        <option value="s">Segundos</option>
+                        <option value="ms">Milissegundos</option>
+                    </select>
 
-                        <button class="inverter-btn" onclick="inverterSelects('tempoDe', 'tempoPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
+                    <button class="inverter-btn" onclick="inverterSelects('tempoDe', 'tempoPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
 
-                        <select id="tempoPara">
-                            <option value="h">Horas</option>
-                            <option value="min" selected>Minutos</option>
-                            <option value="s">Segundos</option>
-                        </select>
+                    <select id="tempoPara">
+                        <option value="h">Horas</option>
+                        <option value="min" selected>Minutos</option>
+                        <option value="s">Segundos</option>
+                        <option value="ms">Milissegundos</option>
+                    </select>
                     </div>
                     <button onclick="converterTempo()">Converter</button>
                 </div>
@@ -122,16 +126,20 @@
                     <input type="number" id="distanciaInput" placeholder="Digite o valor" />
                     <div class="double-select">
                         <select id="distanciaDe">
-                            <option value="m" selected>Metros</option>
-                            <option value="ft">Pés</option>
-                        </select>
+                        <option value="m" selected>Metros</option>
+                        <option value="ft">Pés</option>
+                        <option value="km">Quilômetros</option>
+                        <option value="mi">Milhas</option>
+                    </select>
 
-                        <button class="inverter-btn" onclick="inverterSelects('distanciaDe', 'distanciaPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
+                    <button class="inverter-btn" onclick="inverterSelects('distanciaDe', 'distanciaPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
 
-                        <select id="distanciaPara">
-                            <option value="m">Metros</option>
-                            <option value="ft" selected>Pés</option>
-                        </select>
+                    <select id="distanciaPara">
+                        <option value="m">Metros</option>
+                        <option value="ft" selected>Pés</option>
+                        <option value="km">Quilômetros</option>
+                        <option value="mi">Milhas</option>
+                    </select>
                     </div>
                     <button onclick="converterDistancia()">Converter</button>
                 </div>
@@ -145,22 +153,24 @@
                     <input type="number" id="pesoInput" placeholder="Digite o valor" />
                     <div class="double-select">
                         <select id="pesoDe">
-                            <option value="kg" selected>Quilos</option>
-                            <option value="lb">Libras</option>
-                            <option value="g">Gramas</option>
-                            <option value="oz">Onças</option>
-                            <option value="ton">Toneladas</option>
-                        </select>
+                        <option value="kg" selected>Quilos</option>
+                        <option value="lb">Libras</option>
+                        <option value="g">Gramas</option>
+                        <option value="mg">Miligramas</option>
+                        <option value="oz">Onças</option>
+                        <option value="ton">Toneladas</option>
+                    </select>
 
-                        <button class="inverter-btn" onclick="inverterSelects('pesoDe', 'pesoPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
+                    <button class="inverter-btn" onclick="inverterSelects('pesoDe', 'pesoPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
 
-                        <select id="pesoPara">
-                            <option value="kg">Quilos</option>
-                            <option value="lb" selected>Libras</option>
-                            <option value="g">Gramas</option>
-                            <option value="oz">Onças</option>
-                            <option value="ton">Toneladas</option>
-                        </select>
+                    <select id="pesoPara">
+                        <option value="kg">Quilos</option>
+                        <option value="lb" selected>Libras</option>
+                        <option value="g">Gramas</option>
+                        <option value="mg">Miligramas</option>
+                        <option value="oz">Onças</option>
+                        <option value="ton">Toneladas</option>
+                    </select>
                     </div>
                     <button onclick="converterPeso()">Converter</button>
                 </div>
@@ -174,18 +184,20 @@
                     <input type="number" id="volumeInput" placeholder="Digite o valor" />
                     <div class="double-select">
                         <select id="volumeDe">
-                            <option value="l" selected>Litros</option>
-                            <option value="ml">Mililitros</option>
-                            <option value="gal">Galões</option>
-                        </select>
+                        <option value="l" selected>Litros</option>
+                        <option value="ml">Mililitros</option>
+                        <option value="m3">Metros cúbicos</option>
+                        <option value="gal">Galões</option>
+                    </select>
 
-                        <button class="inverter-btn" onclick="inverterSelects('volumeDe', 'volumePara')"><i class="fa-solid fa-arrows-left-right"></i></button>
+                    <button class="inverter-btn" onclick="inverterSelects('volumeDe', 'volumePara')"><i class="fa-solid fa-arrows-left-right"></i></button>
 
-                        <select id="volumePara">
-                            <option value="l">Litros</option>
-                            <option value="ml" selected>Mililitros</option>
-                            <option value="gal">Galões</option>
-                        </select>
+                    <select id="volumePara">
+                        <option value="l">Litros</option>
+                        <option value="ml" selected>Mililitros</option>
+                        <option value="m3">Metros cúbicos</option>
+                        <option value="gal">Galões</option>
+                    </select>
                     </div>
                     <button onclick="converterVolume()">Converter</button>
                 </div>

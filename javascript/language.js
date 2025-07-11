@@ -140,23 +140,29 @@ function traduzirSelects(lang) {
 		pt: {
 			c: "Celsius",
 			f: "Fahrenheit",
+			k: "Kelvin",
 
 			h: "Horas",
 			min: "Minutos",
 			s: "Segundos",
+			ms: "Milissegundos",
 
 			m: "Metros",
 			ft: "Pés",
+			km: "Quilômetros",
+        	mi: "Milhas",
 
+			mg: "Miligramas",
+			g: "Gramas",
 			kg: "Quilos",
 			lb: "Libras",
-			g: "Gramas",
 			oz: "Onças",
 			ton: "Toneladas",
 
-			l: "Litros",
 			ml: "Mililitros",
+			l: "Litros",
 			gal: "Galões",
+			m3: "Metros cúbicos",
 
 			BRL: "🇧🇷 Real Brasileiro (BRL)",
 			USD: "🇺🇸 Dólar Americano (USD)",
@@ -182,23 +188,29 @@ function traduzirSelects(lang) {
 		en: {
 			c: "Celsius",
 			f: "Fahrenheit",
+			k: "Kelvin",
 
 			h: "Hours",
 			min: "Minutes",
 			s: "Seconds",
+			ms: "Milliseconds",
 
 			m: "Meters",
 			ft: "Feet",
+			km: "Kilometers",
+			mi: "Miles",
 
+			mg: "Milligrams",
+			g: "Grams",
 			kg: "Kilograms",
 			lb: "Pounds",
-			g: "Grams",
 			oz: "Ounces",
 			ton: "Tons",
 
-			l: "Liters",
 			ml: "Milliliters",
+			l: "Liters",
 			gal: "Gallons",
+			m3: "Cubic meters",
 
 			BRL: "🇧🇷 Brazilian Real (BRL)",
 			USD: "🇺🇸 US Dollar (USD)",
