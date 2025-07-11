@@ -1,9 +1,8 @@
 body {
     background: #2c3e50;
     color: #ecf0f1;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Roboto, Arial, sans-serif;
     margin: 0;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,7 +19,7 @@ h1 {
 
 @keyframes pulse {
     0%, 100% { color: #ecf0f1; }
-    50% { color: #f39c12; }
+    50% { color: #1abc9c; }
 }
 
 h2 {
@@ -36,7 +35,7 @@ p {
 }
 
 button {
-    background: #f39c12;
+    background: #1abc9c;
     border: none;
     padding: 0.75rem 1.75rem;
     font-size: 1rem;
@@ -44,12 +43,12 @@ button {
     color: #fff;
     border-radius: 30px;
     cursor: pointer;
-    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.5);
+    box-shadow: 0 5px 15px rgb(26, 188, 156, 0.5);
     transition: background 0.3s ease;
 }
 
 button:hover {
-    background: #d87e04;
+    background: #16a085;
 }
 
 .emoji {
