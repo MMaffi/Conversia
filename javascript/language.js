@@ -3,6 +3,7 @@ const traducoes = {
 		siteTitle: "Conversia",
 		sidebar: {
 			temperatura: "Temperatura",
+			energia: "Energia",
 			tempo: "Tempo",
 			distancia: "Distância",
 			peso: "Peso",
@@ -41,6 +42,7 @@ const traducoes = {
 		siteTitle: "Conversia",
 		sidebar: {
 			temperatura: "Temperature",
+			energia: "Energy",
 			tempo: "Time",
 			distancia: "Distance",
 			peso: "Weight",
@@ -91,11 +93,12 @@ function carregarIdioma(lang) {
 	// Sidebar
 	const sidebarItems = document.querySelectorAll(".sidebar nav a span");
 	sidebarItems[0].innerText = t.sidebar.temperatura;
-	sidebarItems[1].innerText = t.sidebar.tempo;
-	sidebarItems[2].innerText = t.sidebar.distancia;
-	sidebarItems[3].innerText = t.sidebar.peso;
-	sidebarItems[4].innerText = t.sidebar.volume;
-	sidebarItems[5].innerText = t.sidebar.moeda;
+	sidebarItems[1].innerText = t.sidebar.energia;
+	sidebarItems[2].innerText = t.sidebar.tempo;
+	sidebarItems[3].innerText = t.sidebar.distancia;
+	sidebarItems[4].innerText = t.sidebar.peso;
+	sidebarItems[5].innerText = t.sidebar.volume;
+	sidebarItems[6].innerText = t.sidebar.moeda;
 
 	// Texto do botão de idioma
 	document.querySelector("#languageSwitcher p").innerText = t.sidebar.idioma;
@@ -140,23 +143,37 @@ function traduzirSelects(lang) {
 		pt: {
 			c: "Celsius",
 			f: "Fahrenheit",
+			k: "Kelvin",
+
+			J: "Joule",
+			kJ: "Quilojoule",
+			cal: "Caloria",
+			kcal: "Quilocaloria",
+			Wh: "Watt-hora",
+			kWh: "Quilowatt-hora",
+			eV: "Eletronvolt",
 
 			h: "Horas",
 			min: "Minutos",
 			s: "Segundos",
+			ms: "Milissegundos",
 
 			m: "Metros",
 			ft: "Pés",
+			km: "Quilômetros",
+        	mi: "Milhas",
 
+			mg: "Miligramas",
+			g: "Gramas",
 			kg: "Quilos",
 			lb: "Libras",
-			g: "Gramas",
 			oz: "Onças",
 			ton: "Toneladas",
 
-			l: "Litros",
 			ml: "Mililitros",
+			l: "Litros",
 			gal: "Galões",
+			m3: "Metros cúbicos",
 
 			BRL: "🇧🇷 Real Brasileiro (BRL)",
 			USD: "🇺🇸 Dólar Americano (USD)",
@@ -182,23 +199,37 @@ function traduzirSelects(lang) {
 		en: {
 			c: "Celsius",
 			f: "Fahrenheit",
+			k: "Kelvin",
+
+			J: "Joule",
+			kJ: "Kilojoule",
+			cal: "Calorie",
+			kcal: "Kilocalorie",
+			Wh: "Watt-hour",
+			kWh: "Kilowatt-hour",
+			eV: "Electronvolt",
 
 			h: "Hours",
 			min: "Minutes",
 			s: "Seconds",
+			ms: "Milliseconds",
 
 			m: "Meters",
 			ft: "Feet",
+			km: "Kilometers",
+			mi: "Miles",
 
+			mg: "Milligrams",
+			g: "Grams",
 			kg: "Kilograms",
 			lb: "Pounds",
-			g: "Grams",
 			oz: "Ounces",
 			ton: "Tons",
 
-			l: "Liters",
 			ml: "Milliliters",
+			l: "Liters",
 			gal: "Gallons",
+			m3: "Cubic meters",
 
 			BRL: "🇧🇷 Brazilian Real (BRL)",
 			USD: "🇺🇸 US Dollar (USD)",
@@ -235,6 +266,10 @@ function traduzirSelects(lang) {
 	// Temperatura
 	traduzir("tempDe");
 	traduzir("tempPara");
+
+	// Energia
+	traduzir("energiaDe");
+	traduzir("energiaPara");
 
 	// Tempo
 	traduzir("tempoDe");

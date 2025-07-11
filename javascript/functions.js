@@ -3,7 +3,6 @@ function converterTemperatura() {
     const de = document.getElementById("tempDe").value;
     const para = document.getElementById("tempPara").value;
     const resultadoElemento = document.getElementById("tempResultado");
-
     const t = traducoes[idiomaAtual].mensagens;
 
     let valor = parseFloat(input);
@@ -12,27 +11,49 @@ function converterTemperatura() {
         return;
     }
 
-    let convertido = 0;
-    let unidadeDe = de === "c" ? "°C" : "°F";
-    let unidadePara = para === "c" ? "°C" : "°F";
+    let unidadeDe = de === "c" ? "°C" : de === "f" ? "°F" : "K";
+    let unidadePara = para === "c" ? "°C" : para === "f" ? "°F" : "K";
 
-    if (de === "c" && para === "f") {
-        convertido = (valor * 9/5 + 32).toFixed(2);
-    } else if (de === "f" && para === "c") {
-        convertido = ((valor - 32) * 5/9).toFixed(2);
-    } else {
-        convertido = valor.toFixed(2);
+    let celsiusValor;
+    switch (de) {
+        case "c":
+            celsiusValor = valor;
+            break;
+        case "f":
+            celsiusValor = (valor - 32) * 5 / 9;
+            break;
+        case "k":
+            celsiusValor = valor - 273.15;
+            break;
+        default:
+            resultadoElemento.innerText = t.erroConversao;
+            return;
     }
 
-    resultadoElemento.innerText = `${t.resultado} ${valor} ${unidadeDe} = ${convertido} ${unidadePara}`;
+    let convertido;
+    switch (para) {
+        case "c":
+            convertido = celsiusValor;
+            break;
+        case "f":
+            convertido = celsiusValor * 9 / 5 + 32;
+            break;
+        case "k":
+            convertido = celsiusValor + 273.15;
+            break;
+        default:
+            resultadoElemento.innerText = t.erroConversao;
+            return;
+    }
+
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${unidadeDe} = ${convertido.toFixed(2)} ${unidadePara}`;
 }
 
-function converterTempo() {
-    const input = document.getElementById("tempoInput").value;
-    const de = document.getElementById("tempoDe").value;
-    const para = document.getElementById("tempoPara").value;
-    const resultadoElemento = document.getElementById("tempoResultado");
-
+function converterEnergia() {
+    const input = document.getElementById("energiaInput").value;
+    const de = document.getElementById("energiaDe").value;
+    const para = document.getElementById("energiaPara").value;
+    const resultadoElemento = document.getElementById("energiaResultado");
     const t = traducoes[idiomaAtual].mensagens;
 
     let valor = parseFloat(input);
@@ -42,22 +63,57 @@ function converterTempo() {
     }
 
     const unidades = {
-        h: "h",
-        min: "min",
-        s: "s"
+        J: 1,
+        kJ: 1000,
+        cal: 4.184,
+        kcal: 4184,
+        Wh: 3600,
+        kWh: 3600000,
+        eV: 1.60218e-19
     };
 
-    let convertido = 0;
+    if (!(de in unidades) || !(para in unidades)) {
+        resultadoElemento.innerText = t.erroConversao;
+        return;
+    }
 
-    let segundos = valor;
-    if (de === "h") segundos *= 3600;
-    else if (de === "min") segundos *= 60;
+    let valorEmJoules = valor * unidades[de];
+    let convertido = valorEmJoules / unidades[para];
 
-    if (para === "h") convertido = (segundos / 3600).toFixed(2);
-    else if (para === "min") convertido = (segundos / 60).toFixed(2);
-    else convertido = segundos.toFixed(2);
+    const formatado = parseFloat(convertido.toFixed(6));
 
-    resultadoElemento.innerText = `${t.resultado} ${valor} ${unidades[de]} = ${convertido} ${unidades[para]}`;
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${formatado} ${para}`;
+}
+
+function converterTempo() {
+    const input = document.getElementById("tempoInput").value;
+    const de = document.getElementById("tempoDe").value;
+    const para = document.getElementById("tempoPara").value;
+    const resultadoElemento = document.getElementById("tempoResultado");
+    const t = traducoes[idiomaAtual].mensagens;
+
+    let valor = parseFloat(input);
+    if (isNaN(valor)) {
+        resultadoElemento.innerText = t.erroNumero;
+        return;
+    }
+
+    const unidades = {
+        h: 3600000,
+        min: 60000,
+        s: 1000,
+        ms: 1
+    };
+
+    if (!(de in unidades) || !(para in unidades)) {
+        resultadoElemento.innerText = t.erroConversao;
+        return;
+    }
+
+    let valorMs = valor * unidades[de];
+    let convertido = valorMs / unidades[para];
+
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
 }
 
 function converterDistancia() {
@@ -65,7 +121,6 @@ function converterDistancia() {
     const de = document.getElementById("distanciaDe").value;
     const para = document.getElementById("distanciaPara").value;
     const resultadoElemento = document.getElementById("distanciaResultado");
-
     const t = traducoes[idiomaAtual].mensagens;
 
     let valor = parseFloat(input);
@@ -74,14 +129,22 @@ function converterDistancia() {
         return;
     }
 
-    let convertido = 0;
+    const unidades = {
+        m: 1,
+        ft: 0.3048,
+        km: 1000,
+        mi: 1609.344
+    };
 
-    if (de === "m" && para === "ft") convertido = (valor * 3.28084).toFixed(2);
-    else if (de === "ft" && para === "m") convertido = (valor / 3.28084).toFixed(2);
-    else convertido = valor.toFixed(2);
+    if (!(de in unidades) || !(para in unidades)) {
+        resultadoElemento.innerText = t.erroConversao;
+        return;
+    }
 
-    const unidades = { m: "m", ft: "ft" };
-    resultadoElemento.innerText = `${t.resultado} ${valor} ${unidades[de]} = ${convertido} ${unidades[para]}`;
+    let valorEmMetros = valor * unidades[de];
+    let convertido = valorEmMetros / unidades[para];
+
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
 }
 
 function converterPeso() {
@@ -89,7 +152,6 @@ function converterPeso() {
     const de = document.getElementById("pesoDe").value;
     const para = document.getElementById("pesoPara").value;
     const resultadoElemento = document.getElementById("pesoResultado");
-
     const t = traducoes[idiomaAtual].mensagens;
 
     let valor = parseFloat(input);
@@ -98,21 +160,22 @@ function converterPeso() {
         return;
     }
 
-    let gramas = valor;
-    switch (de) {
-        case "kg": gramas *= 1000; break;
-        case "lb": gramas *= 453.592; break;
-        case "oz": gramas *= 28.3495; break;
-        case "ton": gramas *= 1_000_000; break;
+    const unidades = {
+        mg: 0.001,
+        g: 1,
+        kg: 1000,
+        lb: 453.592,
+        oz: 28.3495,
+        ton: 1_000_000
+    };
+
+    if (!(de in unidades) || !(para in unidades)) {
+        resultadoElemento.innerText = t.erroConversao;
+        return;
     }
 
-    let convertido = gramas;
-    switch (para) {
-        case "kg": convertido = gramas / 1000; break;
-        case "lb": convertido = gramas / 453.592; break;
-        case "oz": convertido = gramas / 28.3495; break;
-        case "ton": convertido = gramas / 1_000_000; break;
-    }
+    let valorEmGramas = valor * unidades[de];
+    let convertido = valorEmGramas / unidades[para];
 
     resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
 }
@@ -122,7 +185,6 @@ function converterVolume() {
     const de = document.getElementById("volumeDe").value;
     const para = document.getElementById("volumePara").value;
     const resultadoElemento = document.getElementById("volumeResultado");
-
     const t = traducoes[idiomaAtual].mensagens;
 
     let valor = parseFloat(input);
@@ -131,17 +193,20 @@ function converterVolume() {
         return;
     }
 
-    let ml = valor;
-    switch (de) {
-        case "l": ml *= 1000; break;
-        case "gal": ml *= 3785.41; break;
+    const unidades = {
+        ml: 1,
+        l: 1000,
+        gal: 3785.41,
+        m3: 1_000_000
+    };
+
+    if (!(de in unidades) || !(para in unidades)) {
+        resultadoElemento.innerText = t.erroConversao;
+        return;
     }
 
-    let convertido = ml;
-    switch (para) {
-        case "l": convertido = ml / 1000; break;
-        case "gal": convertido = ml / 3785.41; break;
-    }
+    let valorEmMl = valor * unidades[de];
+    let convertido = valorEmMl / unidades[para];
 
     resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
 }
