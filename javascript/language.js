@@ -8,7 +8,8 @@ const traducoes = {
 			peso: "Peso",
 			volume: "Volume",
 			moeda: "Moeda",
-			idioma: "Idioma"
+			idioma: "Idioma",
+			tema: "Tema"
 		},
 		secoes: {
 			temperatura: "🌡️ Temperatura",
@@ -45,7 +46,8 @@ const traducoes = {
 			peso: "Weight",
 			volume: "Volume",
 			moeda: "Currency",
-			idioma: "Language"
+			idioma: "Language",
+			tema: "Theme"
 		},
 		secoes: {
 			temperatura: "🌡️ Temperature",
@@ -97,6 +99,9 @@ function carregarIdioma(lang) {
 
 	// Texto do botão de idioma
 	document.querySelector("#languageSwitcher p").innerText = t.sidebar.idioma;
+
+	// Texto do botão Tema
+	document.querySelector(".darkmodetext").innerText = t.sidebar.tema;
 
 	// Títulos das seções
 	document.querySelector("#temperatura h2").innerText = t.secoes.temperatura;
