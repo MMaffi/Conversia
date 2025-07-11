@@ -1,189 +1,201 @@
 function converterTemperatura() {
-    const valor = parseFloat(document.getElementById("tempInput").value);
-
+    const input = document.getElementById("tempInput").value;
     const de = document.getElementById("tempDe").value;
     const para = document.getElementById("tempPara").value;
-    
-    let resultado = "";
+    const resultadoElemento = document.getElementById("tempResultado");
 
+    const t = traducoes[idiomaAtual].mensagens;
+
+    let valor = parseFloat(input);
     if (isNaN(valor)) {
-    resultado = "Por favor, insira um número válido.";
-    } else if (de === para) {
-        resultado = `${valor} ${de.toUpperCase()} = ${valor.toFixed(2)} ${para.toUpperCase()}`;
-    } else if (de === "c" && para === "f") {
-        resultado = `${valor} °C = ${(valor * 9 / 5 + 32).toFixed(2)} °F`;
-    } else if (de === "f" && para === "c") {
-        resultado = `${valor} °F = ${((valor - 32) * 5 / 9).toFixed(2)} °C`;
-    } else {
-        resultado = "Conversão inválida.";
+        resultadoElemento.innerText = t.erroNumero;
+        return;
     }
 
-    document.getElementById("tempResultado").textContent = `Resultado: ${resultado}`;
+    let convertido = 0;
+    let unidadeDe = de === "c" ? "°C" : "°F";
+    let unidadePara = para === "c" ? "°C" : "°F";
+
+    if (de === "c" && para === "f") {
+        convertido = (valor * 9/5 + 32).toFixed(2);
+    } else if (de === "f" && para === "c") {
+        convertido = ((valor - 32) * 5/9).toFixed(2);
+    } else {
+        convertido = valor.toFixed(2);
+    }
+
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${unidadeDe} = ${convertido} ${unidadePara}`;
 }
 
 function converterTempo() {
-    const valor = parseFloat(document.getElementById("tempoInput").value);
+    const input = document.getElementById("tempoInput").value;
     const de = document.getElementById("tempoDe").value;
     const para = document.getElementById("tempoPara").value;
-    let resultado = "";
+    const resultadoElemento = document.getElementById("tempoResultado");
 
+    const t = traducoes[idiomaAtual].mensagens;
+
+    let valor = parseFloat(input);
     if (isNaN(valor)) {
-        resultado = "Por favor, insira um número válido.";
-    } else if (de === para) {
-        resultado = `${valor} ${de} = ${valor.toFixed(2)} ${para}`;
-    } else {
-        let segundos;
-        switch (de) {
-            case "h": segundos = valor * 3600; break;
-            case "min": segundos = valor * 60; break;
-            case "s": segundos = valor; break;
-            default: segundos = NaN;
-        }
-
-        let convertido;
-        switch (para) {
-            case "h": convertido = segundos / 3600; break;
-            case "min": convertido = segundos / 60; break;
-            case "s": convertido = segundos; break;
-            default: convertido = NaN;
-        }
-
-        if (isNaN(segundos) || isNaN(convertido)) {
-            resultado = "Conversão inválida.";
-        } else {
-            resultado = `${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
-        }
+        resultadoElemento.innerText = t.erroNumero;
+        return;
     }
 
-    document.getElementById("tempoResultado").textContent = `Resultado: ${resultado}`;
+    const unidades = {
+        h: "h",
+        min: "min",
+        s: "s"
+    };
+
+    let convertido = 0;
+
+    let segundos = valor;
+    if (de === "h") segundos *= 3600;
+    else if (de === "min") segundos *= 60;
+
+    if (para === "h") convertido = (segundos / 3600).toFixed(2);
+    else if (para === "min") convertido = (segundos / 60).toFixed(2);
+    else convertido = segundos.toFixed(2);
+
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${unidades[de]} = ${convertido} ${unidades[para]}`;
 }
 
 function converterDistancia() {
-    const valor = parseFloat(document.getElementById("distanciaInput").value);
+    const input = document.getElementById("distanciaInput").value;
     const de = document.getElementById("distanciaDe").value;
     const para = document.getElementById("distanciaPara").value;
-    let resultado = "";
+    const resultadoElemento = document.getElementById("distanciaResultado");
 
-    const emMetros = {
-        m: 1,
-        ft: 1 / 3.28084
-    };
+    const t = traducoes[idiomaAtual].mensagens;
 
-    const deMetroPara = {
-        m: 1,
-        ft: 3.28084
-    };
-
+    let valor = parseFloat(input);
     if (isNaN(valor)) {
-        resultado = "Por favor, insira um número válido.";
-    } else {
-        const metros = valor * (emMetros[de] || NaN);
-        const convertido = metros * (deMetroPara[para] || NaN);
-
-        if (isNaN(convertido)) {
-            resultado = "Conversão inválida.";
-        } else {
-            resultado = `${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
-        }
+        resultadoElemento.innerText = t.erroNumero;
+        return;
     }
 
-    document.getElementById("distanciaResultado").textContent = `Resultado: ${resultado}`;
+    let convertido = 0;
+
+    if (de === "m" && para === "ft") convertido = (valor * 3.28084).toFixed(2);
+    else if (de === "ft" && para === "m") convertido = (valor / 3.28084).toFixed(2);
+    else convertido = valor.toFixed(2);
+
+    const unidades = { m: "m", ft: "ft" };
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${unidades[de]} = ${convertido} ${unidades[para]}`;
 }
 
 function converterPeso() {
-    const valor = parseFloat(document.getElementById("pesoInput").value);
+    const input = document.getElementById("pesoInput").value;
     const de = document.getElementById("pesoDe").value;
     const para = document.getElementById("pesoPara").value;
-    let resultado = "";
+    const resultadoElemento = document.getElementById("pesoResultado");
 
-    const emGramas = {
-        kg: 1000,
-        lb: 453.592,
-        g: 1,
-        oz: 28.3495,
-        ton: 1_000_000
-    };
+    const t = traducoes[idiomaAtual].mensagens;
 
+    let valor = parseFloat(input);
     if (isNaN(valor)) {
-        resultado = "Por favor, insira um número válido.";
-    } else {
-        const gramas = valor * (emGramas[de] || NaN);
-        const convertido = gramas / (emGramas[para] || NaN);
-
-        if (isNaN(convertido)) {
-            resultado = "Conversão inválida.";
-        } else {
-            resultado = `${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
-        }
+        resultadoElemento.innerText = t.erroNumero;
+        return;
     }
 
-    document.getElementById("pesoResultado").textContent = `Resultado: ${resultado}`;
+    let gramas = valor;
+    switch (de) {
+        case "kg": gramas *= 1000; break;
+        case "lb": gramas *= 453.592; break;
+        case "oz": gramas *= 28.3495; break;
+        case "ton": gramas *= 1_000_000; break;
+    }
+
+    let convertido = gramas;
+    switch (para) {
+        case "kg": convertido = gramas / 1000; break;
+        case "lb": convertido = gramas / 453.592; break;
+        case "oz": convertido = gramas / 28.3495; break;
+        case "ton": convertido = gramas / 1_000_000; break;
+    }
+
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
 }
 
 function converterVolume() {
-    const valor = parseFloat(document.getElementById("volumeInput").value);
+    const input = document.getElementById("volumeInput").value;
     const de = document.getElementById("volumeDe").value;
     const para = document.getElementById("volumePara").value;
-    let resultado = "";
+    const resultadoElemento = document.getElementById("volumeResultado");
 
-    const emMililitros = {
-        l: 1000,
-        ml: 1,
-        gal: 3785.41
-    };
+    const t = traducoes[idiomaAtual].mensagens;
 
+    let valor = parseFloat(input);
     if (isNaN(valor)) {
-        resultado = "Por favor, insira um número válido.";
-    } else {
-        const ml = valor * (emMililitros[de] || NaN);
-        const convertido = ml / (emMililitros[para] || NaN);
-
-        if (isNaN(convertido)) {
-            resultado = "Conversão inválida.";
-        } else {
-            resultado = `${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
-        }
+        resultadoElemento.innerText = t.erroNumero;
+        return;
     }
 
-    document.getElementById("volumeResultado").textContent = `Resultado: ${resultado}`;
+    let ml = valor;
+    switch (de) {
+        case "l": ml *= 1000; break;
+        case "gal": ml *= 3785.41; break;
+    }
+
+    let convertido = ml;
+    switch (para) {
+        case "l": convertido = ml / 1000; break;
+        case "gal": convertido = ml / 3785.41; break;
+    }
+
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
 }
 
+// Parte Moedas Com API ---------------------------------------------------------------------------------------------------
+
+const simbolosMoeda = {
+    BRL: "R$",
+    USD: "$",
+    EUR: "€",
+    GBP: "£",
+    ARS: "$",
+    CLP: "$",
+    CAD: "C$",
+    AUD: "A$",
+    JPY: "¥",
+    CNY: "¥",
+    CHF: "CHF",
+    SEK: "kr",
+    NOK: "kr",
+    DKK: "kr",
+    MXN: "$",
+    INR: "₹",
+    RUB: "₽",
+    ZAR: "R",
+    KRW: "₩",
+    TRY: "₺"
+};
+
 async function converterMoeda() {
-    const valor = parseFloat(document.getElementById("moedaInput").value);
-    const de = document.getElementById("moedaDe").value.toUpperCase();
-    const para = document.getElementById("moedaPara").value.toUpperCase();
-    const resultadoEl = document.getElementById("moedaResultado");
-    const botao = document.getElementById("botaoConverterMoeda");
+    const input = document.getElementById("moedaInput").value;
+    const de = document.getElementById("moedaDe").value;
+    const para = document.getElementById("moedaPara").value;
+    const resultadoElemento = document.getElementById("moedaResultado");
+    const t = traducoes[idiomaAtual].mensagens;
 
-    let resultado = "";
-
+    let valor = parseFloat(input);
     if (isNaN(valor)) {
-        resultado = "Por favor, insira um número válido.";
-        resultadoEl.textContent = `Resultado: ${resultado}`;
+        resultadoElemento.innerText = t.erroNumero;
         return;
     }
 
-    if (de === para) {
-        resultado = `${valor.toFixed(2)} ${de} = ${valor.toFixed(2)} ${para}`;
-        resultadoEl.textContent = `Resultado: ${resultado}`;
-        return;
-    }
-
-    botao.disabled = true;
-    botao.textContent = "Convertendo...";
-    resultadoEl.textContent = "Resultado: Buscando cotação...";
+    resultadoElemento.innerText = t.buscandoCotacao;
 
     const cotacao = await obterCotacao(de, para);
 
-    if (cotacao) {
-        const convertido = valor * cotacao;
-        resultado = `${valor.toFixed(2)} ${de} = ${convertido.toFixed(2)} ${para}`;
-    } else {
-        resultado = "Erro ao obter cotação. Tente novamente mais tarde.";
+    if (!cotacao) {
+        resultadoElemento.innerText = t.erroCotacao;
+        return;
     }
 
-    resultadoEl.textContent = `Resultado: ${resultado}`;
+    const convertido = (valor * cotacao).toFixed(2);
+    const simboloDe = simbolosMoeda[de] || de;
+    const simboloPara = simbolosMoeda[para] || para;
 
-    botao.disabled = false;
-    botao.textContent = "Converter";
+    resultadoElemento.innerText = `${t.resultado} ${simboloDe}${valor} = ${simboloPara}${convertido}`;
 }

@@ -5,20 +5,20 @@ document.getElementById("temperatura").classList.add("active");
 links[0].classList.add("active-link"); 
 
 links.forEach(link => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    const target = link.getAttribute("data-section");
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const target = link.getAttribute("data-section");
 
-    resetarConversores();
+        resetarConversores();
 
-    sections.forEach(sec => sec.classList.remove("active"));
+        sections.forEach(sec => sec.classList.remove("active"));
 
-    document.getElementById(target).classList.add("active");
+        document.getElementById(target).classList.add("active");
 
-    links.forEach(l => l.classList.remove("active-link"));
+        links.forEach(l => l.classList.remove("active-link"));
 
-    link.classList.add("active-link");
-  });
+        link.classList.add("active-link");
+    });
 });
 
 function toggleSidebar() {
@@ -79,3 +79,21 @@ function inverterSelects(id1, id2) {
     select1.value = select2.value;
     select2.value = temp;
 }
+
+document.querySelectorAll("button").forEach((button) => {
+    button.addEventListener("click", function (e) {
+        const circle = document.createElement("span");
+        circle.classList.add("ripple");
+
+        const rect = button.getBoundingClientRect();
+        const size = Math.max(button.offsetWidth, button.offsetHeight);
+        circle.style.width = circle.style.height = size + "px";
+        circle.style.left = e.clientX - rect.left - size / 2 + "px";
+        circle.style.top = e.clientY - rect.top - size / 2 + "px";
+
+        const ripple = button.querySelector(".ripple");
+        if (ripple) ripple.remove();
+
+        button.appendChild(circle);
+    });
+});

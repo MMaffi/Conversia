@@ -1,27 +1,27 @@
 input[type="number"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: white;
-  color: #333;
-  font-size: 16px;
-  transition: border-color 0.3s, box-shadow 0.3s;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: white;
+	color: #333;
+	font-size: 16px;
+	transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input[type="number"]:focus {
-  border-color: #1abc9c;
-  box-shadow: 0 0 5px rgba(26, 188, 156, 0.5);
-  outline: none;
+	border-color: #1abc9c;
+	box-shadow: 0 0 5px rgba(26, 188, 156, 0.5);
+	outline: none;
 }
 
 /* Chrome, Safari, Edge */
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
+  	-moz-appearance: textfield;
 }

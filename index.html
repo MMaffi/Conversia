@@ -8,9 +8,13 @@
     <!-- Link CSS -->
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/languagemenu.css">
     <link rel="stylesheet" href="./css/sidebar.css" />
     <link rel="stylesheet" href="./css/inputstyle.css" />
     <link rel="stylesheet" href="./css/selectstyle.css" />
+
+    <!-- Link Material Web -->
+    <script type="module" src="https://unpkg.com/@material/web/all.js"></script>
 
     <!-- Link logoIcon -->
     <link rel="shortcut icon" href="./assets/images/LogoConversia16x16.ico" type="image/x-icon">
@@ -18,12 +22,17 @@
     <!-- Link Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+    <!-- Link Fonts -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div class="container">
         <aside class="sidebar" id="sidebar">
             <div class="logo-area" onclick="toggleSidebar()">
-                <img src="./assets/images/LogoConversia24x24.png" alt="logo" class="logo-img">
+                <img src="./assets/images/LogoConversia24x24.png" alt="logo" class="logo-img" style="border-radius: 5px;">
                 <span class="logo-text">Conversia</span>
                 <i class="fa-solid fa-angle-left seta-sidebar"></i>
             </div>
@@ -35,7 +44,17 @@
                 <a href="#" data-section="volume"><i class="fas fa-glass-whiskey"></i><span>Volume</span></a>
                 <a href="#" data-section="moeda"><i class="fas fa-dollar-sign"></i><span>Moeda</span></a>
             </nav>
+            <div class="language-wrapper">
+                <div class="language-switcher" id="languageSwitcher">
+                    <i class="fa-solid fa-globe icon-globe" title="Selecionar idioma"></i>
+                    <p class="idiomatext" title="Selecionar idioma">Idioma</p>
+                </div>
+            </div>
         </aside>
+        <ul class="language-menu" id="languageMenu">
+            <li onclick="setLanguage('pt')">🇧🇷 Português</li>
+            <li onclick="setLanguage('en')">🇺🇸 English</li>
+        </ul>
 
         <main class="content">
         
@@ -50,7 +69,7 @@
                         <option value="f">Fahrenheit</option>
                     </select>
 
-                    <button class="inverter-btn" onclick="inverterSelects('tempDe', 'tempPara')">↔</button>
+                    <button class="inverter-btn" onclick="inverterSelects('tempDe', 'tempPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
 
                     <select id="tempPara">
                         <option value="c">Celsius</option>
@@ -74,7 +93,7 @@
                             <option value="s">Segundos</option>
                         </select>
 
-                        <button class="inverter-btn" onclick="inverterSelects('tempoDe', 'tempoPara')">↔</button>
+                        <button class="inverter-btn" onclick="inverterSelects('tempoDe', 'tempoPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
 
                         <select id="tempoPara">
                             <option value="h">Horas</option>
@@ -98,7 +117,7 @@
                             <option value="ft">Pés</option>
                         </select>
 
-                        <button class="inverter-btn" onclick="inverterSelects('distanciaDe', 'distanciaPara')">↔</button>
+                        <button class="inverter-btn" onclick="inverterSelects('distanciaDe', 'distanciaPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
 
                         <select id="distanciaPara">
                             <option value="m">Metros</option>
@@ -124,7 +143,7 @@
                             <option value="ton">Toneladas</option>
                         </select>
 
-                        <button class="inverter-btn" onclick="inverterSelects('pesoDe', 'pesoPara')">↔</button>
+                        <button class="inverter-btn" onclick="inverterSelects('pesoDe', 'pesoPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
 
                         <select id="pesoPara">
                             <option value="kg">Quilos</option>
@@ -151,7 +170,7 @@
                             <option value="gal">Galões</option>
                         </select>
 
-                        <button class="inverter-btn" onclick="inverterSelects('volumeDe', 'volumePara')">↔</button>
+                        <button class="inverter-btn" onclick="inverterSelects('volumeDe', 'volumePara')"><i class="fa-solid fa-arrows-left-right"></i></button>
 
                         <select id="volumePara">
                             <option value="l">Litros</option>
@@ -193,7 +212,7 @@
                             <option value="TRY">🇹🇷 Lira Turca (TRY)</option>
                         </select>
 
-                        <button class="inverter-btn" onclick="inverterSelects('moedaDe', 'moedaPara')">↔</button>
+                        <button class="inverter-btn" onclick="inverterSelects('moedaDe', 'moedaPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
 
                         <select id="moedaPara">
                             <option value="BRL">🇧🇷 Real Brasileiro (BRL)</option>
@@ -228,6 +247,7 @@
 
     <script src="./javascript/apiprice.js"></script>
     <script src="./javascript/clearfunction.js"></script>
+    <script src="./javascript/language.js"></script>
     <script src="./javascript/script.js"></script>
     <script src="./javascript/functions.js"></script>
 </body>

@@ -81,17 +81,39 @@
 }
 
 .inverter-btn {
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
-  color: #333;
-  font-size: 1rem;
-  padding: 4px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin: 0 8px;
-  height: 100%;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 1rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 0 8px;
+    height: 100%;
 }
 
 .inverter-btn:hover {
-  background-color: #e0e0e0;
+    background-color: #e0e0e0;
+}
+
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+button .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animation 500ms linear;
+    background-color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
 }
