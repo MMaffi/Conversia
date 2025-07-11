@@ -49,6 +49,42 @@ function converterTemperatura() {
     resultadoElemento.innerText = `${t.resultado} ${valor} ${unidadeDe} = ${convertido.toFixed(2)} ${unidadePara}`;
 }
 
+function converterEnergia() {
+    const input = document.getElementById("energiaInput").value;
+    const de = document.getElementById("energiaDe").value;
+    const para = document.getElementById("energiaPara").value;
+    const resultadoElemento = document.getElementById("energiaResultado");
+    const t = traducoes[idiomaAtual].mensagens;
+
+    let valor = parseFloat(input);
+    if (isNaN(valor)) {
+        resultadoElemento.innerText = t.erroNumero;
+        return;
+    }
+
+    const unidades = {
+        J: 1,
+        kJ: 1000,
+        cal: 4.184,
+        kcal: 4184,
+        Wh: 3600,
+        kWh: 3600000,
+        eV: 1.60218e-19
+    };
+
+    if (!(de in unidades) || !(para in unidades)) {
+        resultadoElemento.innerText = t.erroConversao;
+        return;
+    }
+
+    let valorEmJoules = valor * unidades[de];
+    let convertido = valorEmJoules / unidades[para];
+
+    const formatado = parseFloat(convertido.toFixed(6));
+
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${formatado} ${para}`;
+}
+
 function converterTempo() {
     const input = document.getElementById("tempoInput").value;
     const de = document.getElementById("tempoDe").value;

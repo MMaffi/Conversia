@@ -36,6 +36,7 @@
             </div>
             <nav>
                 <a href="#" data-section="temperatura"><i class="fas fa-temperature-high"></i><span>Temperatura</span></a>
+                <a href="#" data-section="energia"><i class="fas fa-bolt"></i><span>Energia</span></a>
                 <a href="#" data-section="tempo"><i class="fas fa-clock"></i><span>Tempo</span></a>
                 <a href="#" data-section="distancia"><i class="fas fa-ruler"></i><span>Distância</span></a>
                 <a href="#" data-section="peso"><i class="fas fa-weight-hanging"></i><span>Peso</span></a>
@@ -90,6 +91,41 @@
                 <button onclick="converterTemperatura()">Converter</button>
             </div>
             <p id="tempResultado">Resultado: </p>
+            </section>
+
+            <!-- Energia -->
+            <section id="energia" class="converter">
+                <div class="converter-content">
+                    <h2>⚡ Energia</h2>
+                    <input type="number" id="energiaInput" placeholder="Digite o valor" />
+                    <div class="double-select">
+                        <select id="energiaDe">
+                            <option value="J" selected>Joule</option>
+                            <option value="kJ">Quilojoule</option>
+                            <option value="cal">Caloria</option>
+                            <option value="kcal">Quilocaloria</option>
+                            <option value="Wh">Watt-hora</option>
+                            <option value="kWh">Quilowatt-hora</option>
+                            <option value="eV">Eletronvolt</option>
+                        </select>
+
+                        <button class="inverter-btn" onclick="inverterSelects('energiaDe', 'energiaPara')">
+                            <i class="fa-solid fa-arrows-left-right"></i>
+                        </button>
+
+                        <select id="energiaPara">
+                            <option value="J">Joule</option>
+                            <option value="kJ" selected>Quilojoule</option>
+                            <option value="cal">Caloria</option>
+                            <option value="kcal">Quilocaloria</option>
+                            <option value="Wh">Watt-hora</option>
+                            <option value="kWh">Quilowatt-hora</option>
+                            <option value="eV">Eletronvolt</option>
+                        </select>
+                    </div>
+                    <button onclick="converterEnergia()">Converter</button>
+                </div>
+                <p id="energiaResultado">Resultado: </p>
             </section>
 
             <!-- Tempo -->
