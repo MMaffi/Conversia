@@ -3,11 +3,14 @@ const traducoes = {
 		siteTitle: "Conversia",
 		sidebar: {
 			temperatura: "Temperatura",
-			energia: "Energia",
 			tempo: "Tempo",
 			distancia: "Distância",
+			area: "Área",
 			peso: "Peso",
 			volume: "Volume",
+			armazenamento: "Armazenamento",
+			pressao: "Pressão",
+			energia: "Energia",
 			moeda: "Moeda",
 			idioma: "Idioma",
 			tema: "Tema"
@@ -16,8 +19,12 @@ const traducoes = {
 			temperatura: "🌡️ Temperatura",
 			tempo: "⏱️ Tempo",
 			distancia: "📏 Distância",
+			area: "📐 Área",
 			peso: "⚖️ Peso",
 			volume: "🧴 Volume",
+			armazenamento: "💾 Armazenamento",
+			pressao: "🧪 Pressão",
+			energia: "⚡ Energia",
 			moeda: "💰 Moeda"
 		},
 		placeholders: {
@@ -42,11 +49,14 @@ const traducoes = {
 		siteTitle: "Conversia",
 		sidebar: {
 			temperatura: "Temperature",
-			energia: "Energy",
 			tempo: "Time",
 			distancia: "Distance",
+			area: "Area",
 			peso: "Weight",
 			volume: "Volume",
+			armazenamento: "Storage",
+			pressao: "Pressure",
+			energia: "Energy",
 			moeda: "Currency",
 			idioma: "Language",
 			tema: "Theme"
@@ -55,8 +65,12 @@ const traducoes = {
 			temperatura: "🌡️ Temperature",
 			tempo: "⏱️ Time",
 			distancia: "📏 Distance",
+			area: "📐 Area",
 			peso: "⚖️ Weight",
 			volume: "🧴 Volume",
+			armazenamento: "💾 Storage",
+			pressao: "🧪 Pressure",
+			energia: "⚡ Energy",
 			moeda: "💰 Currency"
 		},
 		placeholders: {
@@ -93,12 +107,15 @@ function carregarIdioma(lang) {
 	// Sidebar
 	const sidebarItems = document.querySelectorAll(".sidebar nav a span");
 	sidebarItems[0].innerText = t.sidebar.temperatura;
-	sidebarItems[1].innerText = t.sidebar.energia;
-	sidebarItems[2].innerText = t.sidebar.tempo;
-	sidebarItems[3].innerText = t.sidebar.distancia;
+	sidebarItems[1].innerText = t.sidebar.tempo;
+	sidebarItems[2].innerText = t.sidebar.distancia;
+	sidebarItems[3].innerText = t.sidebar.area;
 	sidebarItems[4].innerText = t.sidebar.peso;
 	sidebarItems[5].innerText = t.sidebar.volume;
-	sidebarItems[6].innerText = t.sidebar.moeda;
+	sidebarItems[6].innerText = t.sidebar.armazenamento;
+	sidebarItems[7].innerText = t.sidebar.pressao;
+	sidebarItems[8].innerText = t.sidebar.energia;
+	sidebarItems[9].innerText = t.sidebar.moeda;
 
 	// Texto do botão de idioma
 	document.querySelector("#languageSwitcher p").innerText = t.sidebar.idioma;
@@ -110,8 +127,12 @@ function carregarIdioma(lang) {
 	document.querySelector("#temperatura h2").innerText = t.secoes.temperatura;
 	document.querySelector("#tempo h2").innerText = t.secoes.tempo;
 	document.querySelector("#distancia h2").innerText = t.secoes.distancia;
+	document.querySelector("#area h2").innerText = t.secoes.area;
 	document.querySelector("#peso h2").innerText = t.secoes.peso;
 	document.querySelector("#volume h2").innerText = t.secoes.volume;
+	document.querySelector("#armazenamento h2").innerText = t.secoes.armazenamento;
+	document.querySelector("#pressao h2").innerText = t.secoes.pressao;
+	document.querySelector("#energia h2").innerText = t.secoes.energia;
 	document.querySelector("#moeda h2").innerText = t.secoes.moeda;
 
 	// Placeholders dos inputs
@@ -130,8 +151,12 @@ function carregarIdioma(lang) {
 	document.getElementById("tempResultado").innerText = t.mensagens.resultado;
 	document.getElementById("tempoResultado").innerText = t.mensagens.resultado;
 	document.getElementById("distanciaResultado").innerText = t.mensagens.resultado;
+	document.getElementById("areaResultado").innerText = t.mensagens.resultado;
 	document.getElementById("pesoResultado").innerText = t.mensagens.resultado;
 	document.getElementById("volumeResultado").innerText = t.mensagens.resultado;
+	document.getElementById("armazenamentoResultado").innerText = t.mensagens.resultado;
+	document.getElementById("pressaoResultado").innerText = t.mensagens.resultado;
+	document.getElementById("energiaResultado").innerText = t.mensagens.resultado;
 	document.getElementById("moedaResultado").innerText = t.mensagens.resultado;
 
 	// Traduz os selects
@@ -141,10 +166,60 @@ function carregarIdioma(lang) {
 function traduzirSelects(lang) {
 	const labels = {
 		pt: {
+			// Temperatura
 			c: "Celsius",
 			f: "Fahrenheit",
 			k: "Kelvin",
 
+			// Tempo
+			h: "Horas",
+			min: "Minutos",
+			s: "Segundos",
+			ms: "Milissegundos",
+
+			// Distância
+			m: "Metros",
+			ft: "Pés",
+			km: "Quilômetros",
+			mi: "Milhas",
+
+			// Área
+			m2: "Metros quadrados",
+			km2: "Quilômetros quadrados",
+			ft2: "Pés quadrados",
+			ac: "Acres",
+			ha: "Hectares",
+
+			// Peso
+			mg: "Miligramas",
+			g: "Gramas",
+			kg: "Quilos",
+			lb: "Libras",
+			oz: "Onças",
+			ton: "Toneladas",
+
+			// Volume
+			ml: "Mililitros",
+			l: "Litros",
+			gal: "Galões",
+			m3: "Metros cúbicos",
+
+			// Armazenamento
+			bit: "Bits",
+			B: "Bytes",
+			KB: "Kilobytes",
+			MB: "Megabytes",
+			GB: "Gigabytes",
+			TB: "Terabytes",
+
+			// Pressão
+			Pa: "Pascal",
+			bar: "Bar",
+			atm: "Atm",
+			psi: "Psi",
+			mmHg: "Milímetros de mercúrio",
+
+			// Energia
 			J: "Joule",
 			kJ: "Quilojoule",
 			cal: "Caloria",
@@ -153,28 +228,7 @@ function traduzirSelects(lang) {
 			kWh: "Quilowatt-hora",
 			eV: "Eletronvolt",
 
-			h: "Horas",
-			min: "Minutos",
-			s: "Segundos",
-			ms: "Milissegundos",
-
-			m: "Metros",
-			ft: "Pés",
-			km: "Quilômetros",
-        	mi: "Milhas",
-
-			mg: "Miligramas",
-			g: "Gramas",
-			kg: "Quilos",
-			lb: "Libras",
-			oz: "Onças",
-			ton: "Toneladas",
-
-			ml: "Mililitros",
-			l: "Litros",
-			gal: "Galões",
-			m3: "Metros cúbicos",
-
+			// Moedas
 			BRL: "🇧🇷 Real Brasileiro (BRL)",
 			USD: "🇺🇸 Dólar Americano (USD)",
 			EUR: "🇪🇺 Euro (EUR)",
@@ -197,10 +251,60 @@ function traduzirSelects(lang) {
 			TRY: "🇹🇷 Lira Turca (TRY)"
 		},
 		en: {
+			// Temperature
 			c: "Celsius",
 			f: "Fahrenheit",
 			k: "Kelvin",
 
+			// Time
+			h: "Hours",
+			min: "Minutes",
+			s: "Seconds",
+			ms: "Milliseconds",
+
+			// Distance
+			m: "Meters",
+			ft: "Feet",
+			km: "Kilometers",
+			mi: "Miles",
+
+			// Area
+			m2: "Square meters",
+			km2: "Square kilometers",
+			ft2: "Square feet",
+			ac: "Acres",
+			ha: "Hectares",
+
+			// Weight
+			mg: "Milligrams",
+			g: "Grams",
+			kg: "Kilograms",
+			lb: "Pounds",
+			oz: "Ounces",
+			ton: "Tons",
+
+			// Volume
+			ml: "Milliliters",
+			l: "Liters",
+			gal: "Gallons",
+			m3: "Cubic meters",
+
+			// Storage
+			bit: "Bits",
+			B: "Bytes",
+			KB: "Kilobytes",
+			MB: "Megabytes",
+			GB: "Gigabytes",
+			TB: "Terabytes",
+
+			// Pressure
+			Pa: "Pascal",
+			bar: "Bar",
+			atm: "Atm",
+			psi: "Psi",
+			mmHg: "Millimeters of mercury",
+
+			// Energy
 			J: "Joule",
 			kJ: "Kilojoule",
 			cal: "Calorie",
@@ -209,28 +313,7 @@ function traduzirSelects(lang) {
 			kWh: "Kilowatt-hour",
 			eV: "Electronvolt",
 
-			h: "Hours",
-			min: "Minutes",
-			s: "Seconds",
-			ms: "Milliseconds",
-
-			m: "Meters",
-			ft: "Feet",
-			km: "Kilometers",
-			mi: "Miles",
-
-			mg: "Milligrams",
-			g: "Grams",
-			kg: "Kilograms",
-			lb: "Pounds",
-			oz: "Ounces",
-			ton: "Tons",
-
-			ml: "Milliliters",
-			l: "Liters",
-			gal: "Gallons",
-			m3: "Cubic meters",
-
+			// Currencies
 			BRL: "🇧🇷 Brazilian Real (BRL)",
 			USD: "🇺🇸 US Dollar (USD)",
 			EUR: "🇪🇺 Euro (EUR)",
@@ -267,26 +350,38 @@ function traduzirSelects(lang) {
 	traduzir("tempDe");
 	traduzir("tempPara");
 
-	// Energia
-	traduzir("energiaDe");
-	traduzir("energiaPara");
-
 	// Tempo
 	traduzir("tempoDe");
 	traduzir("tempoPara");
-
+	
 	// Distância
 	traduzir("distanciaDe");
 	traduzir("distanciaPara");
 
+	// Área
+	traduzir("areaDe");
+	traduzir("areaPara");
+
 	// Peso
 	traduzir("pesoDe");
 	traduzir("pesoPara");
-
+	
 	// Volume
 	traduzir("volumeDe");
 	traduzir("volumePara");
 
+	// Armazenamento
+	traduzir("armazenamentoDe");
+	traduzir("armazenamentoPara");
+
+	// Pressão
+	traduzir("pressaoDe");
+	traduzir("pressaoPara");
+
+	// Energia
+	traduzir("energiaDe");
+	traduzir("energiaPara");
+	
 	// Moeda
 	traduzir("moedaDe");
 	traduzir("moedaPara");

@@ -49,6 +49,226 @@ function converterTemperatura() {
     resultadoElemento.innerText = `${t.resultado} ${valor} ${unidadeDe} = ${convertido.toFixed(2)} ${unidadePara}`;
 }
 
+function converterTempo() {
+    const input = document.getElementById("tempoInput").value;
+    const de = document.getElementById("tempoDe").value;
+    const para = document.getElementById("tempoPara").value;
+    const resultadoElemento = document.getElementById("tempoResultado");
+    const t = traducoes[idiomaAtual].mensagens;
+    
+    let valor = parseFloat(input);
+    if (isNaN(valor)) {
+        resultadoElemento.innerText = t.erroNumero;
+        return;
+    }
+    
+    const unidades = {
+        h: 3600000,
+        min: 60000,
+        s: 1000,
+        ms: 1
+    };
+
+    if (!(de in unidades) || !(para in unidades)) {
+        resultadoElemento.innerText = t.erroConversao;
+        return;
+    }
+    
+    let valorMs = valor * unidades[de];
+    let convertido = valorMs / unidades[para];
+    
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
+}
+
+function converterDistancia() {
+    const input = document.getElementById("distanciaInput").value;
+    const de = document.getElementById("distanciaDe").value;
+    const para = document.getElementById("distanciaPara").value;
+    const resultadoElemento = document.getElementById("distanciaResultado");
+    const t = traducoes[idiomaAtual].mensagens;
+    
+    let valor = parseFloat(input);
+    if (isNaN(valor)) {
+        resultadoElemento.innerText = t.erroNumero;
+        return;
+    }
+    
+    const unidades = {
+        m: 1,
+        ft: 0.3048,
+        km: 1000,
+        mi: 1609.344
+    };
+    
+    if (!(de in unidades) || !(para in unidades)) {
+        resultadoElemento.innerText = t.erroConversao;
+        return;
+    }
+    
+    let valorEmMetros = valor * unidades[de];
+    let convertido = valorEmMetros / unidades[para];
+    
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
+}
+
+function converterArea() {
+  const input = parseFloat(document.getElementById("areaInput").value);
+  const de = document.getElementById("areaDe").value;
+  const para = document.getElementById("areaPara").value;
+  const resultado = document.getElementById("areaResultado");
+  const t = traducoes[idiomaAtual].mensagens;
+
+  if (isNaN(input)) {
+    resultado.innerText = t.erroNumero;
+    return;
+  }
+
+  const fatores = {
+    m2: 1,
+    km2: 1e6,
+    ft2: 0.092903,
+    acre: 4046.86,
+    hectare: 10000
+  };
+
+  if (!(de in fatores) || !(para in fatores)) {
+    resultado.innerText = t.erroConversao;
+    return;
+  }
+
+  const emM2 = input * fatores[de];
+  const convertido = emM2 / fatores[para];
+
+  resultado.innerText = `${t.resultado} ${input} ${de} = ${convertido.toFixed(4)} ${para}`;
+}
+
+function converterPeso() {
+    const input = document.getElementById("pesoInput").value;
+    const de = document.getElementById("pesoDe").value;
+    const para = document.getElementById("pesoPara").value;
+    const resultadoElemento = document.getElementById("pesoResultado");
+    const t = traducoes[idiomaAtual].mensagens;
+    
+    let valor = parseFloat(input);
+    if (isNaN(valor)) {
+        resultadoElemento.innerText = t.erroNumero;
+        return;
+    }
+    
+    const unidades = {
+        mg: 0.001,
+        g: 1,
+        kg: 1000,
+        lb: 453.592,
+        oz: 28.3495,
+        ton: 1_000_000
+    };
+    
+    if (!(de in unidades) || !(para in unidades)) {
+        resultadoElemento.innerText = t.erroConversao;
+        return;
+    }
+    
+    let valorEmGramas = valor * unidades[de];
+    let convertido = valorEmGramas / unidades[para];
+    
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
+}
+
+function converterVolume() {
+    const input = document.getElementById("volumeInput").value;
+    const de = document.getElementById("volumeDe").value;
+    const para = document.getElementById("volumePara").value;
+    const resultadoElemento = document.getElementById("volumeResultado");
+    const t = traducoes[idiomaAtual].mensagens;
+    
+    let valor = parseFloat(input);
+    if (isNaN(valor)) {
+        resultadoElemento.innerText = t.erroNumero;
+        return;
+    }
+    
+    const unidades = {
+        ml: 1,
+        l: 1000,
+        gal: 3785.41,
+        m3: 1_000_000
+    };
+    
+    if (!(de in unidades) || !(para in unidades)) {
+        resultadoElemento.innerText = t.erroConversao;
+        return;
+    }
+    
+    let valorEmMl = valor * unidades[de];
+    let convertido = valorEmMl / unidades[para];
+    
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
+}
+
+function converterArmazenamento() {
+  const input = parseFloat(document.getElementById("armazenamentoInput").value);
+  const de = document.getElementById("armazenamentoDe").value;
+  const para = document.getElementById("armazenamentoPara").value;
+  const resultado = document.getElementById("armazenamentoResultado");
+  const t = traducoes[idiomaAtual].mensagens;
+
+  if (isNaN(input)) {
+    resultado.innerText = t.erroNumero;
+    return;
+  }
+
+  const fatores = {
+    bit: 1,
+    byte: 8,
+    kb: 8 * 1024,
+    mb: 8 * 1024 ** 2,
+    gb: 8 * 1024 ** 3,
+    tb: 8 * 1024 ** 4
+  };
+
+  if (!(de in fatores) || !(para in fatores)) {
+    resultado.innerText = t.erroConversao;
+    return;
+  }
+
+  const emBits = input * fatores[de];
+  const convertido = emBits / fatores[para];
+
+  resultado.innerText = `${t.resultado} ${input} ${de} = ${convertido.toFixed(4)} ${para}`;
+}
+
+function converterPressao() {
+  const input = parseFloat(document.getElementById("pressaoInput").value);
+  const de = document.getElementById("pressaoDe").value;
+  const para = document.getElementById("pressaoPara").value;
+  const resultado = document.getElementById("pressaoResultado");
+  const t = traducoes[idiomaAtual].mensagens;
+
+  if (isNaN(input)) {
+    resultado.innerText = t.erroNumero;
+    return;
+  }
+
+  const fatores = {
+    pa: 1,
+    bar: 100000,
+    atm: 101325,
+    psi: 6894.76,
+    mmHg: 133.322
+  };
+
+  if (!(de in fatores) || !(para in fatores)) {
+    resultado.innerText = t.erroConversao;
+    return;
+  }
+
+  const emPa = input * fatores[de];
+  const convertido = emPa / fatores[para];
+
+  resultado.innerText = `${t.resultado} ${input} ${de} = ${convertido.toFixed(4)} ${para}`;
+}
+
 function converterEnergia() {
     const input = document.getElementById("energiaInput").value;
     const de = document.getElementById("energiaDe").value;
@@ -83,132 +303,6 @@ function converterEnergia() {
     const formatado = parseFloat(convertido.toFixed(6));
 
     resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${formatado} ${para}`;
-}
-
-function converterTempo() {
-    const input = document.getElementById("tempoInput").value;
-    const de = document.getElementById("tempoDe").value;
-    const para = document.getElementById("tempoPara").value;
-    const resultadoElemento = document.getElementById("tempoResultado");
-    const t = traducoes[idiomaAtual].mensagens;
-
-    let valor = parseFloat(input);
-    if (isNaN(valor)) {
-        resultadoElemento.innerText = t.erroNumero;
-        return;
-    }
-
-    const unidades = {
-        h: 3600000,
-        min: 60000,
-        s: 1000,
-        ms: 1
-    };
-
-    if (!(de in unidades) || !(para in unidades)) {
-        resultadoElemento.innerText = t.erroConversao;
-        return;
-    }
-
-    let valorMs = valor * unidades[de];
-    let convertido = valorMs / unidades[para];
-
-    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
-}
-
-function converterDistancia() {
-    const input = document.getElementById("distanciaInput").value;
-    const de = document.getElementById("distanciaDe").value;
-    const para = document.getElementById("distanciaPara").value;
-    const resultadoElemento = document.getElementById("distanciaResultado");
-    const t = traducoes[idiomaAtual].mensagens;
-
-    let valor = parseFloat(input);
-    if (isNaN(valor)) {
-        resultadoElemento.innerText = t.erroNumero;
-        return;
-    }
-
-    const unidades = {
-        m: 1,
-        ft: 0.3048,
-        km: 1000,
-        mi: 1609.344
-    };
-
-    if (!(de in unidades) || !(para in unidades)) {
-        resultadoElemento.innerText = t.erroConversao;
-        return;
-    }
-
-    let valorEmMetros = valor * unidades[de];
-    let convertido = valorEmMetros / unidades[para];
-
-    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
-}
-
-function converterPeso() {
-    const input = document.getElementById("pesoInput").value;
-    const de = document.getElementById("pesoDe").value;
-    const para = document.getElementById("pesoPara").value;
-    const resultadoElemento = document.getElementById("pesoResultado");
-    const t = traducoes[idiomaAtual].mensagens;
-
-    let valor = parseFloat(input);
-    if (isNaN(valor)) {
-        resultadoElemento.innerText = t.erroNumero;
-        return;
-    }
-
-    const unidades = {
-        mg: 0.001,
-        g: 1,
-        kg: 1000,
-        lb: 453.592,
-        oz: 28.3495,
-        ton: 1_000_000
-    };
-
-    if (!(de in unidades) || !(para in unidades)) {
-        resultadoElemento.innerText = t.erroConversao;
-        return;
-    }
-
-    let valorEmGramas = valor * unidades[de];
-    let convertido = valorEmGramas / unidades[para];
-
-    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
-}
-
-function converterVolume() {
-    const input = document.getElementById("volumeInput").value;
-    const de = document.getElementById("volumeDe").value;
-    const para = document.getElementById("volumePara").value;
-    const resultadoElemento = document.getElementById("volumeResultado");
-    const t = traducoes[idiomaAtual].mensagens;
-
-    let valor = parseFloat(input);
-    if (isNaN(valor)) {
-        resultadoElemento.innerText = t.erroNumero;
-        return;
-    }
-
-    const unidades = {
-        ml: 1,
-        l: 1000,
-        gal: 3785.41,
-        m3: 1_000_000
-    };
-
-    if (!(de in unidades) || !(para in unidades)) {
-        resultadoElemento.innerText = t.erroConversao;
-        return;
-    }
-
-    let valorEmMl = valor * unidades[de];
-    let convertido = valorEmMl / unidades[para];
-
-    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(2)} ${para}`;
 }
 
 // Parte Moedas Com API ---------------------------------------------------------------------------------------------------
