@@ -8,10 +8,10 @@
 
 - ✅ Conversion of **currencies**
 - 🌡️ Conversion of **temperature** (Celsius, Fahrenheit, Kelvin)
-- ⏱️ Conversion of **time** (seconds, minutes, hours, days)
-- 📏 Conversion of **distance** (meters, kilometers, miles, etc.)
-- ⚖️ Conversion of **weight** (grams, kilograms, pounds)
-- 🧪 Conversion of **volume** (liters, ml, gallons)
+- ⏱️ Conversion of **time** (milliseconds, seconds, minutes, hours)
+- 📏 Conversion of **storage** (bits, bytes, KB, etc.)
+- ⚖️ Conversion of **weight** (grams, kilograms, pounds, etc.)
+- 🧪 Conversion of **Currency** (BRL, USD, EUR, etc.)
 - 📐 Other useful conversions (area, speed, pressure and much more)
 
 ---
@@ -21,6 +21,7 @@
 - **HTML5** – semantic structure of the site  
 - **CSS3** – layout, responsiveness and pleasant design  
 - **JavaScript** – conversion logic, validation and interactivity
+- **API Communication** – real-time exchange rates and dynamic data fetching
 
 ---
 

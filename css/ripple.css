@@ -1,0 +1,44 @@
+/* === Ripple da sidebar === */
+
+.sidebar nav a,
+#languageSwitcher {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animation 900ms linear;
+    background-color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* === Ripple dos Botões === */
+
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+button .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple-animation 600ms linear;
+    background-color: rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* === Animação Ripple === */
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
