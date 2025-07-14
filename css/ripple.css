@@ -11,7 +11,7 @@
     position: absolute;
     border-radius: 50%;
     transform: scale(0);
-    animation: ripple-animation 900ms linear;
+    animation: ripple-animation 600ms linear;
     background-color: rgba(255, 255, 255, 0.6);
     pointer-events: none;
     z-index: 1;
@@ -28,7 +28,7 @@ button .ripple {
     position: absolute;
     border-radius: 50%;
     transform: scale(0);
-    animation: ripple-animation 600ms linear;
+    animation: ripple-animation 400ms linear;
     background-color: rgba(255, 255, 255, 0.6);
     pointer-events: none;
     z-index: 1;

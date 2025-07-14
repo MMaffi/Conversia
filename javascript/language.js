@@ -10,6 +10,11 @@ const traducoes = {
 			volume: "Volume",
 			armazenamento: "Armazenamento",
 			pressao: "Pressão",
+			frequencia: "Frequência",
+			velocidade: "Velocidade",
+			angulo: "Ângulo",
+			taxa: "Taxa",
+			som: "Som",
 			energia: "Energia",
 			moeda: "Moeda",
 			idioma: "Idioma",
@@ -24,6 +29,11 @@ const traducoes = {
 			volume: "🧴 Volume",
 			armazenamento: "💾 Armazenamento",
 			pressao: "🧪 Pressão",
+			frequencia: "📶 Frequência",
+			velocidade: "🏎️ Velocidade",
+			angulo: "🧭 Ângulo",
+			taxa: "📊 Taxa",
+			som: "🔊 Som",
 			energia: "⚡ Energia",
 			moeda: "💰 Moeda"
 		},
@@ -56,6 +66,11 @@ const traducoes = {
 			volume: "Volume",
 			armazenamento: "Storage",
 			pressao: "Pressure",
+			frequencia: "Frequency",
+			velocidade: "Speed",
+			angulo: "Angle",
+			taxa: "Rate",
+			som: "Sound",
 			energia: "Energy",
 			moeda: "Currency",
 			idioma: "Language",
@@ -70,6 +85,11 @@ const traducoes = {
 			volume: "🧴 Volume",
 			armazenamento: "💾 Storage",
 			pressao: "🧪 Pressure",
+			frequencia: "📶 Frequency",
+			velocidade: "🏎️ Speed",
+			angulo: "🧭 Angle",
+			taxa: "📊 Rate",
+			som: "🔊 Sound",
 			energia: "⚡ Energy",
 			moeda: "💰 Currency"
 		},
@@ -114,8 +134,13 @@ function carregarIdioma(lang) {
 	sidebarItems[5].innerText = t.sidebar.volume;
 	sidebarItems[6].innerText = t.sidebar.armazenamento;
 	sidebarItems[7].innerText = t.sidebar.pressao;
-	sidebarItems[8].innerText = t.sidebar.energia;
-	sidebarItems[9].innerText = t.sidebar.moeda;
+	sidebarItems[8].innerText = t.sidebar.frequencia;
+	sidebarItems[9].innerText = t.sidebar.velocidade;
+	sidebarItems[10].innerText = t.sidebar.angulo;
+	sidebarItems[11].innerText = t.sidebar.taxa;
+	sidebarItems[12].innerText = t.sidebar.som;
+	sidebarItems[13].innerText = t.sidebar.energia;
+	sidebarItems[14].innerText = t.sidebar.moeda;
 
 	// Texto do botão de idioma
 	document.querySelector("#languageSwitcher p").innerText = t.sidebar.idioma;
@@ -132,6 +157,11 @@ function carregarIdioma(lang) {
 	document.querySelector("#volume h2").innerText = t.secoes.volume;
 	document.querySelector("#armazenamento h2").innerText = t.secoes.armazenamento;
 	document.querySelector("#pressao h2").innerText = t.secoes.pressao;
+	document.querySelector("#frequencia h2").innerText = t.secoes.frequencia;
+	document.querySelector("#velocidade h2").innerText = t.secoes.velocidade;
+	document.querySelector("#angulo h2").innerText = t.secoes.angulo;
+	document.querySelector("#taxa h2").innerText = t.secoes.taxa;
+	document.querySelector("#som h2").innerText = t.secoes.som;
 	document.querySelector("#energia h2").innerText = t.secoes.energia;
 	document.querySelector("#moeda h2").innerText = t.secoes.moeda;
 
@@ -156,6 +186,11 @@ function carregarIdioma(lang) {
 	document.getElementById("volumeResultado").innerText = t.mensagens.resultado;
 	document.getElementById("armazenamentoResultado").innerText = t.mensagens.resultado;
 	document.getElementById("pressaoResultado").innerText = t.mensagens.resultado;
+	document.getElementById("frequenciaResultado").innerText = t.mensagens.resultado;
+	document.getElementById("velocidadeResultado").innerText = t.mensagens.resultado;
+	document.getElementById("anguloResultado").innerText = t.mensagens.resultado;
+	document.getElementById("taxaResultado").innerText = t.mensagens.resultado;
+	document.getElementById("somResultado").innerText = t.mensagens.resultado;
 	document.getElementById("energiaResultado").innerText = t.mensagens.resultado;
 	document.getElementById("moedaResultado").innerText = t.mensagens.resultado;
 
@@ -218,6 +253,33 @@ function traduzirSelects(lang) {
 			atm: "Atm",
 			psi: "Psi",
 			mmHg: "Milímetros de mercúrio",
+
+			// Frequência
+			Hz: "Hertz",
+			kHz: "Quilohertz",
+			MHz: "Megahertz",
+			GHz: "Gigahertz",
+
+			// Velocidade
+			"km/h": "Quilômetros por hora",
+			"m/s": "Metros por segundo",
+			mph: "Milhas por hora",
+			knots: "Nós",
+
+			// Ângulo
+			graus: "Graus",
+			radianos: "Radianos",
+			grads: "Grads",
+
+			// Taxa
+			porcentagem: "Porcentagem",
+			fracao: "Fração",
+			proporcao: "Proporção",
+
+			// Som
+			dB: "Decibéis",
+			sone: "Sones",
+			phon: "Fons",
 
 			// Energia
 			J: "Joule",
@@ -304,6 +366,33 @@ function traduzirSelects(lang) {
 			psi: "Psi",
 			mmHg: "Millimeters of mercury",
 
+			// Frequency
+			Hz: "Hertz",
+			kHz: "Kilohertz",
+			MHz: "Megahertz",
+			GHz: "Gigahertz",
+
+			// Speed
+			"km/h": "Kilometers per hour",
+			"m/s": "Meters per second",
+			mph: "Miles per hour",
+			knots: "Knots",
+
+			// Angle
+			graus: "Degrees",
+			radianos: "Radians",
+			grads: "Grads",
+
+			// Rate
+			porcentagem: "Percentage",
+			fracao: "Fraction",
+			proporcao: "Ratio",
+
+			// Sound
+			dB: "Decibels",
+			sone: "Sones",
+			phon: "Phons",
+
 			// Energy
 			J: "Joule",
 			kJ: "Kilojoule",
@@ -377,6 +466,26 @@ function traduzirSelects(lang) {
 	// Pressão
 	traduzir("pressaoDe");
 	traduzir("pressaoPara");
+
+	// Frequência
+	traduzir("frequenciaDe");
+	traduzir("frequenciaPara");
+
+	// Velocidade
+	traduzir("velocidadeDe");
+	traduzir("velocidadePara");
+
+	// Ângulo
+	traduzir("anguloDe");
+	traduzir("anguloPara");
+
+	// Taxa
+	traduzir("taxaDe");
+	traduzir("taxaPara");
+
+	// Som
+	traduzir("somDe");
+	traduzir("somPara");
 
 	// Energia
 	traduzir("energiaDe");

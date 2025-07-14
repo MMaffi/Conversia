@@ -269,6 +269,197 @@ function converterPressao() {
   resultado.innerText = `${t.resultado} ${input} ${de} = ${convertido.toFixed(4)} ${para}`;
 }
 
+function converterFrequencia() {
+    const input = document.getElementById("frequenciaInput").value;
+    const de = document.getElementById("frequenciaDe").value;
+    const para = document.getElementById("frequenciaPara").value;
+    const resultadoElemento = document.getElementById("frequenciaResultado");
+    const t = traducoes[idiomaAtual].mensagens;
+
+    let valor = parseFloat(input);
+    if (isNaN(valor)) {
+        resultadoElemento.innerText = t.erroNumero;
+        return;
+    }
+
+    const fatores = {
+        Hz: 1,
+        kHz: 1e3,
+        MHz: 1e6,
+        GHz: 1e9
+    };
+
+    if (!(de in fatores) || !(para in fatores)) {
+        resultadoElemento.innerText = t.erroConversao;
+        return;
+    }
+
+    const emHz = valor * fatores[de];
+    const convertido = emHz / fatores[para];
+
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(6)} ${para}`;
+}
+
+function converterVelocidade() {
+    const input = document.getElementById("velocidadeInput").value;
+    const de = document.getElementById("velocidadeDe").value;
+    const para = document.getElementById("velocidadePara").value;
+    const resultadoElemento = document.getElementById("velocidadeResultado");
+    const t = traducoes[idiomaAtual].mensagens;
+
+    let valor = parseFloat(input);
+    if (isNaN(valor)) {
+        resultadoElemento.innerText = t.erroNumero;
+        return;
+    }
+
+    const unidades = {
+        "km/h": 1,
+        "m/s": 3.6,
+        "mph": 1.609344,
+        "nos": 1.852
+    };
+
+    if (!(de in unidades) || !(para in unidades)) {
+        resultadoElemento.innerText = t.erroConversao;
+        return;
+    }
+
+    let valorKmH = valor * unidades[de];
+    let convertido = valorKmH / unidades[para];
+
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(4)} ${para}`;
+}
+
+function converterAngulo() {
+    const input = document.getElementById("anguloInput").value;
+    const de = document.getElementById("anguloDe").value;
+    const para = document.getElementById("anguloPara").value;
+    const resultadoElemento = document.getElementById("anguloResultado");
+    const t = traducoes[idiomaAtual].mensagens;
+
+    let valor = parseFloat(input);
+    if (isNaN(valor)) {
+        resultadoElemento.innerText = t.erroNumero;
+        return;
+    }
+
+    let valorGraus;
+    switch(de) {
+        case "graus": valorGraus = valor; break;
+        case "radianos": valorGraus = valor * (180 / Math.PI); break;
+        case "grads": valorGraus = valor * 0.9; break;
+        default:
+            resultadoElemento.innerText = t.erroConversao;
+            return;
+    }
+
+    let convertido;
+    switch(para) {
+        case "graus": convertido = valorGraus; break;
+        case "radianos": convertido = valorGraus * (Math.PI / 180); break;
+        case "grads": convertido = valorGraus / 0.9; break;
+        default:
+            resultadoElemento.innerText = t.erroConversao;
+            return;
+    }
+
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(6)} ${para}`;
+}
+
+function converterTaxa() {
+    const input = document.getElementById("taxaInput").value;
+    const de = document.getElementById("taxaDe").value;
+    const para = document.getElementById("taxaPara").value;
+    const resultadoElemento = document.getElementById("taxaResultado");
+    const t = traducoes[idiomaAtual].mensagens;
+
+    let valor = parseFloat(input);
+    if (isNaN(valor)) {
+        resultadoElemento.innerText = t.erroNumero;
+        return;
+    }
+
+    let convertido;
+
+    if (de === para) {
+        convertido = valor;
+    } else if (de === "porcentagem") {
+        if (para === "fracao" || para === "proporcao") convertido = valor / 100;
+        else {
+            resultadoElemento.innerText = t.erroConversao;
+            return;
+        }
+    } else if (de === "fracao" || de === "proporcao") {
+        if (para === "porcentagem") convertido = valor * 100;
+        else if (para === "fracao" || para === "proporcao") convertido = valor;
+        else {
+            resultadoElemento.innerText = t.erroConversao;
+            return;
+        }
+    } else {
+        resultadoElemento.innerText = t.erroConversao;
+        return;
+    }
+
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(6)} ${para}`;
+}
+
+function converterSom() {
+    const input = document.getElementById("somInput").value;
+    const de = document.getElementById("somDe").value;
+    const para = document.getElementById("somPara").value;
+    const resultadoElemento = document.getElementById("somResultado");
+    const t = traducoes[idiomaAtual].mensagens;
+
+    let valor = parseFloat(input);
+    if (isNaN(valor)) {
+        resultadoElemento.innerText = t.erroNumero;
+        return;
+    }
+
+    if (de === para) {
+        resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${valor} ${para}`;
+        return;
+    }
+
+    let convertido;
+
+    if (de === "dB") {
+        if (para === "sones") {
+            convertido = Math.pow(2, (valor - 40) / 10);
+        } else if (para === "phons") {
+            convertido = valor;
+        } else {
+            resultadoElemento.innerText = t.erroConversao;
+            return;
+        }
+    } else if (de === "sones") {
+        if (para === "dB") {
+            convertido = 40 + 10 * Math.log2(valor);
+        } else if (para === "phons") {
+            convertido = 40 + 10 * Math.log2(valor);
+        } else {
+            resultadoElemento.innerText = t.erroConversao;
+            return;
+        }
+    } else if (de === "phons") {
+        if (para === "dB") {
+            convertido = valor;
+        } else if (para === "sones") {
+            convertido = Math.pow(2, (valor - 40) / 10);
+        } else {
+            resultadoElemento.innerText = t.erroConversao;
+            return;
+        }
+    } else {
+        resultadoElemento.innerText = t.erroConversao;
+        return;
+    }
+
+    resultadoElemento.innerText = `${t.resultado} ${valor} ${de} = ${convertido.toFixed(4)} ${para}`;
+}
+
 function converterEnergia() {
     const input = document.getElementById("energiaInput").value;
     const de = document.getElementById("energiaDe").value;

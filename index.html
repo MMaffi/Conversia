@@ -44,6 +44,11 @@
                 <a href="#" data-section="volume"><i class="fas fa-glass-whiskey"></i><span>Volume</span></a>
                 <a href="#" data-section="armazenamento"><i class="fa-solid fa-database"></i><span>Armazenamento</span></a>
                 <a href="#" data-section="pressao"><i class="fa-solid fa-gauge-high"></i><span>Pressão</span></a>
+                <a href="#" data-section="frequencia"><i class="fa-solid fa-wave-square"></i><span>Frequência</span></a>
+                <a href="#" data-section="velocidade"><i class="fas fa-tachometer-alt"></i><span>Velocidade</span></a>
+                <a href="#" data-section="angulo"><i class="fas fa-drafting-compass"></i><span>Ângulo</span></a>
+                <a href="#" data-section="taxa"><i class="fas fa-percentage"></i><span>Taxa</span></a>
+                <a href="#" data-section="som"><i class="fas fa-volume-up"></i><span>Som</span></a>
                 <a href="#" data-section="energia"><i class="fas fa-bolt"></i><span>Energia</span></a>
                 <a href="#" data-section="moeda"><i class="fas fa-dollar-sign"></i><span>Moeda</span></a>
             </nav>
@@ -296,6 +301,135 @@
                     <button onclick="converterPressao()">Converter</button>
                 </div>
                 <p id="pressaoResultado">Resultado: </p>
+            </section>
+
+            <!-- Frequência -->
+            <section id="frequencia" class="converter">
+                <div class="converter-content">
+                    <h2>📶 Frequência</h2>
+                    <input type="number" id="frequenciaInput" placeholder="Digite o valor" />
+                    <div class="double-select">
+                        <select id="frequenciaDe">
+                            <option value="Hz" selected>Hertz (Hz)</option>
+                            <option value="kHz">Kilohertz (kHz)</option>
+                            <option value="MHz">Megahertz (MHz)</option>
+                            <option value="GHz">Gigahertz (GHz)</option>
+                        </select>
+
+                        <button class="inverter-btn" onclick="inverterSelects('frequenciaDe', 'frequenciaPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
+
+                        <select id="frequenciaPara">
+                            <option value="Hz">Hertz (Hz)</option>
+                            <option value="kHz" selected>Kilohertz (kHz)</option>
+                            <option value="MHz">Megahertz (MHz)</option>
+                            <option value="GHz">Gigahertz (GHz)</option>
+                        </select>
+                    </div>
+                    <button onclick="converterFrequencia()">Converter</button>
+                </div>
+                <p id="frequenciaResultado">Resultado: </p>
+            </section>
+
+            <!-- Velocidade -->
+            <section id="velocidade" class="converter">
+                <div class="converter-content">
+                    <h2>🏎️ Velocidade</h2>
+                    <input type="number" id="velocidadeInput" placeholder="Digite o valor" step="any" />
+                    <div class="double-select">
+                    <select id="velocidadeDe">
+                        <option value="km/h" selected>km/h</option>
+                        <option value="m/s">m/s</option>
+                        <option value="mph">mph</option>
+                        <option value="nos">nós</option>
+                    </select>
+
+                    <button class="inverter-btn" onclick="inverterSelects('velocidadeDe', 'velocidadePara')"><i class="fa-solid fa-arrows-left-right"></i></button>
+
+                    <select id="velocidadePara">
+                        <option value="km/h">km/h</option>
+                        <option value="m/s" selected>m/s</option>
+                        <option value="mph">mph</option>
+                        <option value="nos">nós</option>
+                    </select>
+                    </div>
+                    <button onclick="converterVelocidade()">Converter</button>
+                </div>
+                <p id="velocidadeResultado">Resultado: </p>
+            </section>
+
+            <!-- Ângulo -->
+            <section id="angulo" class="converter">
+                <div class="converter-content">
+                    <h2>📐 Ângulo</h2>
+                    <input type="number" id="anguloInput" placeholder="Digite o valor" step="any" />
+                    <div class="double-select">
+                    <select id="anguloDe">
+                        <option value="graus" selected>Graus</option>
+                        <option value="radianos">Radianos</option>
+                        <option value="grads">Grads</option>
+                    </select>
+
+                    <button class="inverter-btn" onclick="inverterSelects('anguloDe', 'anguloPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
+
+                    <select id="anguloPara">
+                        <option value="graus">Graus</option>
+                        <option value="radianos" selected>Radianos</option>
+                        <option value="grads">Grads</option>
+                    </select>
+                    </div>
+                    <button onclick="converterAngulo()">Converter</button>
+                </div>
+                <p id="anguloResultado">Resultado: </p>
+            </section>
+
+            <!-- Taxa -->
+            <section id="taxa" class="converter">
+                <div class="converter-content">
+                    <h2>📊 Taxa</h2>
+                    <input type="number" id="taxaInput" placeholder="Digite o valor" step="any" />
+                    <div class="double-select">
+                    <select id="taxaDe">
+                        <option value="porcentagem" selected>Porcentagem (%)</option>
+                        <option value="fracao">Fração decimal</option>
+                        <option value="proporcao">Proporção</option>
+                    </select>
+
+                    <button class="inverter-btn" onclick="inverterSelects('taxaDe', 'taxaPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
+
+                    <select id="taxaPara">
+                        <option value="porcentagem">Porcentagem (%)</option>
+                        <option value="fracao" selected>Fração decimal</option>
+                        <option value="proporcao">Proporção</option>
+                    </select>
+                    </div>
+                    <button onclick="converterTaxa()">Converter</button>
+                </div>
+                <p id="taxaResultado">Resultado: </p>
+            </section>
+
+            <!-- Som -->
+            <section id="som" class="converter">
+                <div class="converter-content">
+                    <h2>🔊 Som</h2>
+                    <input type="number" id="somInput" placeholder="Digite o valor" step="any" />
+                    <div class="double-select">
+                    <select id="somDe">
+                        <option value="dB" selected>dB</option>
+                        <option value="sones">Sones</option>
+                        <option value="phons">Phons</option>
+                    </select>
+
+                    <button class="inverter-btn" onclick="inverterSelects('somDe', 'somPara')"><i class="fa-solid fa-arrows-left-right"></i></button>
+
+                    <select id="somPara">
+                        <option value="dB">dB</option>
+                        <option value="sones" selected>Sones</option>
+                        <option value="phons">Phons</option>
+                    </select>
+                    </div>
+                    <button onclick="converterSom()">Converter</button>
+                </div>
+                <p id="somResultado">Resultado: </p>
             </section>
 
             <!-- Energia -->
